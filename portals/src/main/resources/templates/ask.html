@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/js/wangEditor.js"></script>
+<meta charset="UTF-8">
+<div class="container col-5 mt-5">
+    <div class="form-group ">
+        <label>标题</label>
+        <input id="title" class="form-control">
+        <input id="userId" th:value="${userId}" class="d-none">
+    </div>
+    <label>正文</label>
+    <div class="form-group" id="editor">
+    </div>
+    <button class="btn btn-outline-primary float-right" onclick="f1()">提交</button>
+</div>
+</html>
+<!--创建富文本编辑器-->
+<script>
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    editor.create()
+</script>
+<script>
+    //提交表单
+    function f1() {
+        var userId = $("#userId").val()
+        var title = $("#title").val()
+        var content = editor.txt.html()
+        $.ajax({
+            url: "http://127.0.0.1:8082/api/question/ask",
+            type: "post",
+            data: {
+                title: title,
+                content: content,
+                userId: userId
+            },
+            success: function (e) {
+                alert("提问成功")
+                window.location.href = "http://127.0.0.1:8080/question/" + e
+            }
+        })
+    }
+</script>

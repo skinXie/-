@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>站内信</title>
+</head>
+<div th:replace="head::head"></div>
+<div class="container mt-5 col-5">
+    <!--循环站内信-->
+    <div class="alert alert-warning alert-dismissible" role="alert" th:each="viewObject:${viewObjects}">
+        <button th:id="${viewObject.get('letter').letterId}" type="button" class="close" data-dismiss="alert"
+                aria-label="Close"
+                onclick="f(this);">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class=" media text-muted pt-3">
+            <img class="mr-2 rounded-circle" th:src="@{${viewObject.get('user').headUrl}}"
+                 src="../static/img/head/1.jpg"
+                 data-holder-rendered="true" style="width: 40px; height: 40px;">
+            <p class="media-body pb-3 mb-0  border-bottom border-gray">
+                <strong class="d-block mb-3 mt-2"
+                        th:text="${viewObject.get('user').userName}">用户名</strong>
+                <span th:text="${viewObject.get('letter').letterContent}">正文</span>
+            </p>
+        </div>
+    </div>
+</div>
+</html>
+<script>
+    //关闭已读的站内信
+    function f(e) {
+        var letterId = $(e).attr('id')
+        $.ajax({
+            type: "post",
+            url: "http://127.0.0.1:8081/letter/delete",
+            data: {letterId: letterId}
+        });
+    }
+</script>

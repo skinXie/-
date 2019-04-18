@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<meta charset="UTF-8">
+<style>
+    body {
+        background-color: #c3e6cb;
+    }
+</style>
+<input class="d-none" id="maxPage" th:value="${maxPage}">
+<!--导航栏-->
+<div th:replace="head::head"></div>
+<div class="container">
+    <div class="row">
+        <!--头像--> <!--标题用户-->
+        <div class="col-7 m-4 rounded" style="background-color: #f7f7f7;">
+            <div id="content1">
+                <!--循环点-->
+                <div class="row mt-3 border-bottom" th:each="viewObject:${viewObjects}">
+                    <div class="col-2 mt-1">
+                        <!--头像-->
+                        <img class=" rounded" th:src="@{${viewObject.get('user').headUrl}}"
+                             src="../static/img/head/default.jpg"
+                             width="50" height="50">
+                    </div>
+                    <div class="col-10">
+                        <!--标题用户-->
+                        <a th:text="${viewObject.get('question').questionTitle}"
+                           th:href="@{/question/{questionId}(questionId=${viewObject.get('question').questionId})}">标题</a>
+                        <p class="text-gray-dark" th:text="${viewObject.get('user').userName}">姓名</p>
+                        <div class="offset-5">
+                            <span class="text-secondary">时间:</span>
+                            <span class="text-secondary"
+                                  th:text="${viewObject.get('question').questionDate}">2018-2-1</span>
+                            <span class="text-secondary">&nbsp;&nbsp;浏览数:</span>
+                            <span class="text-secondary" th:text="${viewObject.get('question').visitTime}">666</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--分页-->
+            <ul class="pagination  justify-content-center pt-4 mt-4">
+                <li class="page-item"><a id="a1" class="page-link" href="javascript:void(0)" onclick="f1(this)">首页</a>
+                </li>
+                <li class="page-item disabled"><a id="a2" class="page-link" href="javascript:void(0)"
+                                                  onclick="f1(this)">前一页</a>
+                </li>
+                <li class="page-item active"><a id="a3" class="page-link" href="javascript:void(0)"
+                                                onclick="f1(this)">1</a>
+                </li>
+                <li class="page-item "><a id="a4" class="page-link" href="javascript:void(0)" onclick="f1(this)">2</a>
+                </li>
+                <li class="page-item"><a id="a5" class="page-link" href="javascript:void(0)" onclick="f1(this)">3</a>
+                </li>
+                <li class="page-item"><a id="a6" class="page-link" href="javascript:void(0)" onclick="f1(this)">4</a>
+                </li>
+                <li class="page-item "><a id="a7" class="page-link" href="javascript:void(0)" onclick="f1(this)">5</a>
+                </li>
+                <li class="page-item"><a id="a8" class="page-link" href="javascript:void(0)" onclick="f1(this)">后一页</a>
+                </li>
+                <li class="page-item"><a id="a9" class="page-link" href="javascript:void(0)" onclick="f1(this)">尾页</a>
+                </li>
+            </ul>
+        </div>
+        <!--热门文章-->
+        <div class="col-3 m-4" style="background-color: #f7f7f7;">
+        </div>
+    </div>
+</div>
+</html>
+<!--初始化分页按钮-->
+<script>
+    function f1(e) {
+        var preNode = $(".active")
+        var prePage = preNode.children().text()
+        var curPage = $(e).text()
+        $(".disabled").removeClass('disabled')
+        $(".active").removeClass('active')
+        if ($(e).attr('id') == 'a1') {
+            $("#a3").text(1)
+            $("#a4").text(2)
+            $("#a5").text(3)
+            $("#a6").text(4)
+            $("#a7").text(5)
+            $("#a3").parent().addClass("active")
+            $("#a2").parent().addClass("disabled")
+        }
+        if ($(e).attr('id') == 'a2') {
+            if (prePage == '2') {
+                $("#a3").parent().addClass("active")
+                $("#a2").parent().addClass("disabled")
+            }
+            else if (prePage == '3' || prePage == maxPage || prePage == Number(maxPage) - 1 + "") {
+                preNode.prev().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(prePage) - 3 + '')
+                $("#a4").text(Number(prePage) - 2 + '')
+                $("#a5").text(Number(prePage) - 1 + '')
+                $("#a6").text(prePage)
+                $("#a7").text(Number(prePage) + 1 + '')
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a3') {
+            if ($(e).text() == '1') {
+                $("#a3").parent().addClass("active")
+                $("#a2").parent().addClass("disabled")
+            }
+            else if ($(e).text() == '2') {
+                $("#a3").text('1')
+                $("#a4").text('2')
+                $("#a5").text('3')
+                $("#a6").text('4')
+                $("#a7").text('5')
+                $("#a4").parent().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a4') {
+            if ($(e).text() == '2') {
+                $(e).parent().addClass('active')
+            } else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a5') {
+            $("#a3").text(Number(curPage) - 2 + "")
+            $("#a4").text(Number(curPage) - 1 + "")
+            $("#a5").text(curPage)
+            $("#a6").text(Number(curPage) + 1 + "")
+            $("#a7").text(Number(curPage) + 2 + "")
+            $("#a5").parent().addClass('active')
+        }
+        if ($(e).attr('id') == 'a6') {
+            if ($(e).text() == Number(maxPage) - 1) {
+                $(e).parent().addClass('active')
+            } else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a7') {
+            var curPage = $(e).text()
+            if ($(e).text() == maxPage) {
+                $("#a7").parent().addClass("active")
+                $("#a8").parent().addClass("disabled")
+            }
+            else if ($(e).text() == Number(maxPage) - 1) {
+                $("#a3").text(Number(maxPage) - 4)
+                $("#a4").text(Number(maxPage) - 3)
+                $("#a5").text(Number(maxPage) - 2)
+                $("#a6").text(Number(maxPage) - 1)
+                $("#a7").text(maxPage)
+                $("#a7").parent().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a8') {
+            if (prePage == Number(maxPage) - 1 + "") {
+                $("#a7").parent().addClass("active")
+                $("#a8").parent().addClass("disabled")
+            }
+            else if (prePage == Number(maxPage) - 2 || prePage == 1 || prePage == 2) {
+                preNode.next().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(prePage) - 1)
+                $("#a4").text(prePage)
+                $("#a5").text(Number(prePage) + 1)
+                $("#a6").text(Number(prePage) + 2)
+                $("#a7").text(Number(prePage) + 3)
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a9') {
+            $("#a3").text(Number(maxPage) - 4)
+            $("#a4").text(Number(maxPage) - 3)
+            $("#a5").text(Number(maxPage) - 2)
+            $("#a6").text(Number(maxPage) - 1)
+            $("#a7").text(maxPage)
+            $("#a7").parent().addClass("active")
+            $("#a8").parent().addClass("disabled")
+        }
+        curPage = $(".active").children().text();
+        $.ajax({
+            //请求问题分页
+            url: "http://127.0.0.1:8082/question",
+            data: {
+                page: curPage,
+                count: 5
+            },
+            type: "get",
+            //请求问题作者信息
+            success: function (questions) {
+                $("#content1").empty()
+                $.each(questions, function (i, question) {
+                    $.ajax({
+                        url: "http://127.0.0.1:8081/user/" + question.userId,
+                        type: "get",
+                        success: function (e) {
+                            res = " <div class=\"row mt-3 border-bottom\" >\n" +
+                                "                <div class=\"col-2 mt-1\">\n" +
+                                "                    <!--头像-->\n" +
+                                "                    <img class=\" rounded\"\n" +
+                                "                         src=" + e.headUrl + "\n" +
+                                "                         width=\"50\" height=\"50\">\n" +
+                                "                </div>\n" +
+                                "                <div class=\"col-10\">\n" +
+                                "                    <!--标题用户-->\n" +
+                                "                    <a \n" +
+                                "                       href=\"/question/" + question.questionId + "\"> "+question.questionTitle+" </a>\n" +
+                                "                    <p class=\"text-gray-dark\">" + e.userName + "</p>\n" +
+                                "                    <div class=\"offset-5\">\n" +
+                                "                        <span class=\"text-secondary\">时间:</span>\n" +
+                                "                        <span class=\"text-secondary\"\n" +
+                                "                             >" + question.questionDate + "</span>\n" +
+                                "                        <span class=\"text-secondary\">&nbsp;&nbsp;浏览数:</span>\n" +
+                                "                        <span class=\"text-secondary\" >" + question.visitTime + "</span>\n" +
+                                "                    </div>\n" +
+                                "                </div>\n" +
+                                "            </div>"
+                            $("#content1").append(res)
+                        }
+                    })
+                })
+
+            }
+        })
+    }
+</script>

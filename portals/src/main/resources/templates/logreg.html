@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<style>
+    body {
+        background-color: #f7f7f7;
+    }
+
+    a {
+        background-color: #17A2B8;
+        color: whitesmoke;
+    }
+
+    a:hover {
+        background-color: #138496;
+        color: whitesmoke;
+    }
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<input class="d-none" th:value="${next}" id="next">
+<div class="container">
+    <form method="post" class="col-6 offset-3">
+        <div style="border-bottom: 1px solid wheat ;margin-top: 10%;">
+            <!--登录注册切换-->
+            <div class="form-group">
+                <div class="btn-group col-12">
+                    <a class="btn btn-default col-6 text-white" id="a1" onclick="f1(this)">登录</a>
+                    <a class="btn btn-default col-6 text-white" id="a2" onclick="f1(this)">注册</a>
+                </div>
+            </div>
+            <!--错误提示框-->
+            <div class="form-group">
+                <div class="row">
+                    <span class="text-danger col-6 offset-3" th:text="${error}"></span>
+                </div>
+            </div>
+            <!--账号-->
+            <div class="form-group">
+                <div class="col-6 offset-3">
+                    <label>账号</label>
+                    <input type="text" class="form-control" id="account" name="account" placeholder="请输入账号">
+                </div>
+            </div>
+            <!--密码-->
+            <div class="form-group">
+                <div class="col-6 offset-3">
+                    <label>密码</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                </div>
+            </div>
+            <div id="regdiv">
+                <!--邮箱-->
+                <div class="form-group">
+                    <div class="col-6 offset-3">
+                        <label>邮箱</label>
+                        <input type="email" class="form-control" id="mailbox" name="mailbox" placeholder="请输入邮箱">
+                    </div>
+                </div>
+                <!--验证码-->
+                <div class="form-group">
+                    <div class="col-6 offset-3">
+                        <label>验证码</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 offset-3">
+                            <input type="text" class="form-control" id="activeCode" name="activeCode"
+                                   placeholder="请输入验证码">
+                        </div>
+                        <button class=" btn btn-primary">发送</button>
+                    </div>
+                </div>
+            </div>
+            <!--登录注册按钮-->
+            <div class="form-group">
+                <div class="col-6 offset-3">
+                    <button type="button" class="btn btn-sm btn-primary btn-block" id="btn1" onclick="f2(this)">登录
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary btn-block" id="btn2" onclick="f2(this)">注册
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</html>
+<script>
+    //按钮的显示与隐藏
+    $("#btn1").show()
+    $("#btn2").hide()
+    $("#regdiv").hide();
+    function f1(e) {
+        if ($(e).attr('id') == 'a1') {
+            $("#btn1").show()
+            $("#btn2").hide()
+            $("#regdiv").hide();
+        }
+        else {
+            $("#btn1").hide()
+            $("#btn2").show()
+            $("#regdiv").show();
+        }
+    }
+
+    //登录注册按钮的提交
+    function f2(e) {
+        //获取将要跳转的页面
+        var next = $("#next").val()
+        //获取账号密码
+        var account = $("#account").val()
+        var password = $("#password").val()
+        if (account == "" || password == "") {
+            $(".text-danger").text("账号密码不能为空")
+        }
+        else {
+            var url;
+            //登录提交
+            if ($(e).attr('id') == 'btn1') {
+                url = "http://127.0.0.1:8080/login"
+            }
+            //注册提交
+            else {
+                url = "http://127.0.0.1:8080/registry"
+            }
+            $.ajax({
+                type: "post",
+                url: url,
+                data: {
+                    account: account,
+                    password: password
+                },
+                success: function () {
+                    window.location.href = "http://127.0.0.1:8080" + next
+                }
+            })
+        }
+    }
+</script>

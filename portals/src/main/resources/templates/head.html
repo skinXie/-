@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<head>
+    <meta charset="UTF-8">
+</head>
+<div th:fragment="head">
+    <div class="navbar navbar-expand  navbar-dark  bg-dark sticky-top container-fluid">
+        <div class="collapse navbar-collapse container">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ml-2">
+                    <a class="nav-link text-light" href="/">
+                        <img src="../static/img/icon/首页.svg" height="20" width="20">
+                        首页
+                    </a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link text-light" href="/ask">
+                        <img src="../static/img/icon/提问.svg" height="20" width="20">
+                        提问
+                    </a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link text-light" data-toggle="modal" data-target="#exampleModal"
+                       href="javascript:void(0)">
+                        <img src="../static/img/icon/发送.svg" height="20" width="20">
+                        发消息
+                    </a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link text-light " href="/letter">
+                        <img src="../static/img/icon/站内信.svg" height="20" width="20">
+                        站内信 <span class="badge badge-light" id="unread">40</span>
+                    </a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link text-light" href="/follow">
+                        <img src="../static/img/icon/关注.svg" height="20" width="20">
+                        我的关注
+                    </a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link text-light" href="#">
+                        <img src="../static/img/icon/问答.svg" height="20" width="20">
+                        我的问答
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline mr-3" action="/search" ,method="get">
+                <input class="form-control mr-3" type="text" name="keywords" placeholder="Search">
+                <button type="submit" class="btn btn-light">
+                    搜索
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </form>
+
+            <ul class="navbar-nav">
+                <li class="nav-item" th:if="${holder}== null">
+                    <a class="nav-link text-light " href="/logreg">登录/注册</a>
+                </li>
+                <li class="nav-item" th:if="${holder} != null">
+                    <a class="navbar-brand" href="#">
+                        <img width="45" height="45" class="rounded-circle" src="" th:src="@{${holder.headUrl}}">
+                    </a>
+                </li>
+                <li class="nav-item" th:if="${holder}!=null">
+                    <a class="nav-link text-light navbar-text" href="#"><span
+                            th:text="${holder.userName}">昵称替换</span></a>
+                </li>
+                <li class="nav-item" th:if="${holder}!=null">
+                    <a class="nav-link text-light" href="/exit">退出</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!--发送消息-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">新消息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-form-label">接收人:</label>
+                            <input class="d-none" th:value="${holder}==null?'':${holder.userId}" id="sender">
+                            <input type="text" class="form-control" id="receiver">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">消息:</label>
+                            <textarea class="form-control" id="content"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="send(this)">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var userId = $("#sender").val()
+        if (userId != null) {
+            <!--请求未读的站内信-->
+            $.ajax({
+                url: "http://127.0.0.1:8081/api/letter/" + holderId,
+                type: "get",
+                success: function (e) {
+                    console.log(e)
+                    $("#unread").text(e.length)
+                }
+            })
+        }
+
+    </script>
+    <script>
+        <!--发送站内信-->
+        function send(e) {
+            var sender = $("#sender").val()
+            if (sender == "") {
+                alert('请先登录')
+                window.location.href = "http://127.0.0.1:8080/logreg"
+            }
+            else {
+                var receiver = $("#receiver").val()
+                var content = $("#content").val()
+                if (receiver != "" && content != "") {
+                    $.ajax({
+                        url: "http://127.0.0.1:8081/api/letter/send",
+                        data: {
+                            sender: sender,
+                            receiver: receiver,
+                            content: content
+                        },
+                        type: "post",
+                        success: function () {
+                            alert('发送成功')
+                            $(e).prev().click()
+                        },
+                        error: function () {
+                            alert('发送失败')
+                        }
+                    })
+                }
+                else {
+                    alert('发送人或内容不能为空')
+                }
+            }
+        }
+
+    </script>
+</div>
+</html>

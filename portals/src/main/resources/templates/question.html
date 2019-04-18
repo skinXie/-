@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+<script src="../static/js/wangEditor.js"></script>
+<style>
+    body {
+        background-color: #71dd8a;
+    }
+</style>
+<input id="page" class="d-none" th:value="${page}">
+<input id="qid" class="d-none" th:value="${question.questionId}">
+<input id="holder" class="d-none" th:value="${holder.userId}" th:if="${holder!=null}">
+<input id="holderName" class="d-none" th:value="${holder.userName}" th:if="${holder!=null}">
+<input id="holderUrl" class="d-none" th:value="${holder.headUrl}" th:if="${holder!=null}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>问题</title>
+</head>
+<input class="d-none" id="input2" th:value="${page}">
+<div th:replace="head::head"></div>
+<div class="container border col-5 mt-2" style="background-color: snow">
+    <!--问题的标题-->
+    <h5 class="pt-2" th:text="${question.questionTitle}">标题</h5>
+    <div class="media text-muted pt-3 ">
+        <img width="40" height="40"
+             class="mr-2 rounded" th:src="@{${user.headUrl}}"
+             src="../static/img/head/1.jpg">
+        <p class="media-body pb-3 ">
+            <span class=" text-gray-dark " th:text="${user.userName}">用户名</span>
+        </p>
+
+        <input name="btn1" type="button" th:id="${user.userId}" class="btn btn-danger btn-sm mr-2"
+               th:value=" ${follow}? '已关注' : '关注' " onclick="f1(this)"/>
+    </div>
+    <span>浏览数 : </span><span th:text="${question.visitTime}">6666</span>
+    <div class="border mt-3"></div>
+    <!--问题的内容-->
+    <div class="m-2 mt-4" th:utext="${question.questionContent}">
+        打完大无多阿瓦达安慰打完打完打完ad安慰大味道就会放多少尽
+        快恢复健康活动时间阿富汗就当是客户房间爱的时刻恢复健康时
+        快恢复健康活动时间阿富汗就当是客户房间爱的时刻恢复健康时
+        快恢复健康活动时间阿富汗就当是客户房间爱的时刻恢复健康时
+        快恢复健康活动时间阿富汗就当是客户房间爱的时刻恢复健康时
+        代峰峻活动时间凯华房价开始电话方尽快哈数据库福克斯的黄金
+    </div>
+    <div class="clearfix pb-2">
+        <a class="btn btn-info float-right" href="#editor">跳到评论
+        </a>
+    </div>
+</div>
+<div class="container col-5 mt-2" style="background-color: snow">
+    <!--回答-->
+    <div id="content1" class="border-bottom">
+        <div th:each="viewObject:${viewObjects}">
+            <div class="media text-muted pt-3">
+                <img class="mr-2 rounded" th:src="@{${viewObject.get('user').headUrl}}"
+                     src="../static/img/head/1.jpg"
+                     width="40" height="40">
+                <p class="media-body pb-3">
+                    <span class="text-gray-dark" th:text="${viewObject.get('user').userName}">用户名</span>
+                </p>
+                <a onclick="dianzan(this)" href="javascript:void (0)" th:id="${viewObject.get('answer').answerId}">
+                    <img src="../static/img/icon/zan1.svg" width="30" height="30"
+                         th:src="${viewObject.get('zanNote')}==null? '../static/img/icon/zan1.svg': '../static/img/icon/zan2.svg'">
+                </a>
+                (<span th:text="${viewObject.get('zan')}">666</span>)
+            </div>
+            <div class="mt-2" th:utext="${viewObject.get('answer').answerContent}">
+                快恢复健康活动时间阿富汗就当是客户房间爱的时刻恢复健康时
+            </div>
+            <div class="container mt-5 col-10 mb-5" style="background-color: snow">
+                <!--对答案的回答 -->
+                <div th:each="viewObject:${viewObject.get('viewObjects1')}" class="rounded"
+                     style="background-color: #5a6268">
+                    <div class="border-bottom pl-3">
+                        <span class="small text-light" th:text="${viewObject.get('user').userName}+' :'">用户名:</span>
+                        <span class="small text-light " th:text="${viewObject.get('answer').answerContent}">回复</span>
+                    </div>
+                </div>
+                <input type="text" class="form-control" placeholder="我的回复...">
+                <div class="clearfix mt-2 ">
+                    <button class="btn btn-info float-right " th:id="${viewObject.get('answer').answerId}"
+                            onclick="f3(this)">回复
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--分页-->
+    <ul class="pagination  justify-content-center pt-4 mt-4">
+        <li class="page-item"><a id="a1" class="page-link" href="javascript:void(0)" onclick="f4(this)">首页</a></li>
+        <li class="page-item disabled"><a id="a2" class="page-link" href="javascript:void(0)" onclick="f4(this)">前一页</a>
+        </li>
+        <li class="page-item active"><a id="a3" class="page-link" href="javascript:void(0)" onclick="f4(this)">1</a>
+        </li>
+        <li class="page-item "><a id="a4" class="page-link" href="javascript:void(0)" onclick="f4(this)">2</a></li>
+        <li class="page-item"><a id="a5" class="page-link" href="javascript:void(0)" onclick="f4(this)">3</a></li>
+        <li class="page-item"><a id="a6" class="page-link" href="javascript:void(0)" onclick="f4(this)">4</a></li>
+        <li class="page-item "><a id="a7" class="page-link" href="javascript:void(0)" onclick="f4(this)">5</a></li>
+        <li class="page-item"><a id="a8" class="page-link" href="javascript:void(0)" onclick="f4(this)">后一页</a></li>
+        <li class="page-item"><a id="a9" class="page-link" href="javascript:void(0)" onclick="f4(this)">尾页</a></li>
+    </ul>
+</div>
+
+<!--富文本编辑-->
+<div class="container  mt-2 col-5" style="padding:0;background-color: snow">
+    <div id="editor"></div>
+    <div class="clearfix mt-2 pb-2">
+        <button class="btn btn-info float-right mr-3" onclick="f2(this)" th:id="${question.questionId}">回帖
+        </button>
+    </div>
+</div>
+</html>
+<!--创建编辑器-->
+<script>
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    editor.create()
+</script>
+<!--功能函数-->
+<script>
+    //关注，取消关注
+    function f1(e) {
+        var value = $(e).val()
+        var followerId = $("#holder").val()
+        var followedId = $(e).attr('id');
+        if (value == "关注") {
+            $.ajax({
+                type: "post",
+                data: {
+                    followerId: followerId,
+                    followedId: followedId,
+                },
+                url: "http://127.0.0.1:8081/follow/add",
+                success: function () {
+                    $(e).val("已关注")
+                }
+            })
+        }
+        else {
+            $.ajax({
+                type: "post",
+                data: {
+                    followerId: followerId,
+                    followedId: followedId
+                },
+                url: "http://127.0.0.1:8081/follow/cancel",
+                success: function () {
+                    $(e).val("关注")
+                }
+            })
+        }
+    }
+
+    //点赞
+    function dianzan(e) {
+        var answerId = $(e).attr('id')
+        var userId = $("#holder").val()
+        var zan = $(e).next().text()
+        //未点赞
+        if ($(e).children().attr('src') == '../static/img/icon/zan1.svg') {
+            $.ajax({
+                type: "post",
+                url: "http://127.0.0.1:8082/zan/add",
+                data: {
+                    userId: userId,
+                    answerId: answerId
+                },
+                success: function () {
+                    $(e).children().attr('src','../static/img/icon/zan2.svg')
+                    $(e).next().text(Number(zan) + 1)
+                }
+            })
+        }
+    }
+
+    //回帖(回复问题)
+    function f2(e) {
+        var content = editor.txt.html()
+        var userId = $("#holder").val()
+        var entityId = $(e).attr('id')
+        $.ajax({
+            type: "post",
+            url: "http://127.0.0.1:8082/answer/add",
+            data: {
+                entityType: 0,
+                content: content,
+                userId: userId,
+                entityId: entityId
+            },
+            success: function (e) {
+                console.log(content)
+                var res = " <div class=\"media text-muted pt-3\">\n" +
+                    "            <img class=\"mr-2 rounded\" \n" +
+                    "                src=\"" + $("#holderUrl").val() + "\" width=\"30\" height=\"30\">\n" +
+                    "            <p class=\"media-body pb-3\">\n" +
+                    "                <span class=\"text-gray-dark\" >" + $("#holderName").val() + "</span>\n" +
+                    "            </p>\n" +
+                    "            <a onclick=\"dianzan(this)\" href=\"javascript:void (0)\" id=\"" + e + "\">\n" +
+                    "                <img src=\"../static/img/icon/zan1.svg\" width=\"30\" height=\"30\"\n" +
+                    "                    >\n" +
+                    "            </a>\n" +
+                    "            (<span >0</span>)\n" +
+                    "        </div>\n" +
+                    "        <div class=\"mt-2\">\n" +
+                    "            " + content + "\n" +
+                    "        </div>\n" +
+                    "        <div class=\"container mt-5 col-10 mb-5\" style=\"background-color: snow\">\n" +
+                    "            <!--对答案的回答 -->\n" +
+                    "            <div  class=\"rounded\"\n" +
+                    "                 style=\"background-color: #5a6268\">\n" +
+                    "                <div class=\"border-bottom pl-3\">\n" +
+                    "                </div>\n" +
+                    "            </div>\n" +
+                    "            <input type=\"text\" class=\"form-control\" placeholder=\"我的回复...\">\n" +
+                    "            <div class=\"clearfix mt-2 \">\n" +
+                    "                <button class=\"btn btn-info float-right \" id=\"" + e + "\"\n" +
+                    "                        onclick=\"f3(this)\">\n" +
+                    "               回复 </button>\n" +
+                    "            </div>\n" +
+                    "        </div>"
+                $("#content1").append(res)
+            }
+        })
+    }
+
+    //回复答案
+    function f3(e) {
+        var content = $(e).parent().prev().val()
+        var entityId = $(e).attr('id')
+        var userId = $("#holder").val()
+        $.ajax({
+            type: "post",
+            url: "http://127.0.0.1:8082/answer/add",
+            data: {
+                entityType: 1,
+                content: content,
+                userId: userId,
+                entityId: entityId
+            },
+            success: function () {
+                var res = "  <div class=\"border-bottom pl-3\">\n" +
+                    " <span class=\"small text-light\" >" + $("#holderName").val() + "</span>\n" +
+                    " <span class=\"small text-light \" > : " + content + "</span>\n" +
+                    "  </div>"
+                $(e).parent().prev().prev().append(res)
+            }
+        })
+    }
+
+    //分页disabled a1-a9 active
+    function f4(e) {
+        var maxPage = $("#page").val()
+        var preNode = $(".active")
+        var prePage = preNode.children().text()
+        var curPage = $(e).text()
+        $(".disabled").removeClass('disabled')
+        $(".active").removeClass('active')
+        if ($(e).attr('id') == 'a1') {
+            $("#a3").text(1)
+            $("#a4").text(2)
+            $("#a5").text(3)
+            $("#a6").text(4)
+            $("#a7").text(5)
+            $("#a3").parent().addClass("active")
+            $("#a2").parent().addClass("disabled")
+        }
+        if ($(e).attr('id') == 'a2') {
+            if (prePage == '2') {
+                $("#a3").parent().addClass("active")
+                $("#a2").parent().addClass("disabled")
+            }
+            else if (prePage == '3' || prePage == maxPage || prePage == Number(maxPage) - 1 + "") {
+                preNode.prev().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(prePage) - 3 + '')
+                $("#a4").text(Number(prePage) - 2 + '')
+                $("#a5").text(Number(prePage) - 1 + '')
+                $("#a6").text(prePage)
+                $("#a7").text(Number(prePage) + 1 + '')
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a3') {
+            if ($(e).text() == '1') {
+                $("#a3").parent().addClass("active")
+                $("#a2").parent().addClass("disabled")
+            }
+            else if ($(e).text() == '2') {
+                $("#a3").text('1')
+                $("#a4").text('2')
+                $("#a5").text('3')
+                $("#a6").text('4')
+                $("#a7").text('5')
+                $("#a4").parent().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a4') {
+            if ($(e).text() == '2') {
+                $(e).parent().addClass('active')
+            } else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a5') {
+            $("#a3").text(Number(curPage) - 2 + "")
+            $("#a4").text(Number(curPage) - 1 + "")
+            $("#a5").text(curPage)
+            $("#a6").text(Number(curPage) + 1 + "")
+            $("#a7").text(Number(curPage) + 2 + "")
+            $("#a5").parent().addClass('active')
+        }
+        if ($(e).attr('id') == 'a6') {
+            if ($(e).text() == Number(maxPage) - 1) {
+                $(e).parent().addClass('active')
+            } else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a7') {
+            var curPage = $(e).text()
+            if ($(e).text() == maxPage) {
+                $("#a7").parent().addClass("active")
+                $("#a8").parent().addClass("disabled")
+            }
+            else if ($(e).text() == Number(maxPage) - 1) {
+                $("#a3").text(Number(maxPage) - 4)
+                $("#a4").text(Number(maxPage) - 3)
+                $("#a5").text(Number(maxPage) - 2)
+                $("#a6").text(Number(maxPage) - 1)
+                $("#a7").text(maxPage)
+                $("#a7").parent().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(curPage) - 2 + "")
+                $("#a4").text(Number(curPage) - 1 + "")
+                $("#a5").text(curPage)
+                $("#a6").text(Number(curPage) + 1 + "")
+                $("#a7").text(Number(curPage) + 2 + "")
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a8') {
+            if (prePage == Number(maxPage) - 1 + "") {
+                $("#a7").parent().addClass("active")
+                $("#a8").parent().addClass("disabled")
+            }
+            else if (prePage == Number(maxPage) - 2 || prePage == 1 || prePage == 2) {
+                preNode.next().addClass('active')
+            }
+            else {
+                $("#a3").text(Number(prePage) - 1)
+                $("#a4").text(prePage)
+                $("#a5").text(Number(prePage) + 1)
+                $("#a6").text(Number(prePage) + 2)
+                $("#a7").text(Number(prePage) + 3)
+                $("#a5").parent().addClass('active')
+            }
+        }
+        if ($(e).attr('id') == 'a9') {
+            $("#a3").text(Number(maxPage) - 4)
+            $("#a4").text(Number(maxPage) - 3)
+            $("#a5").text(Number(maxPage) - 2)
+            $("#a6").text(Number(maxPage) - 1)
+            $("#a7").text(maxPage)
+            $("#a7").parent().addClass("active")
+            $("#a8").parent().addClass("disabled")
+        }
+        curPage = $(".active").children().text();
+        //请求问题的答案
+        $.ajax({
+            async: false,
+            url: "http://127.0.0.1:8082/answer",
+            type: "get",
+            data: {
+                entityType: 0,
+                entityId: $("#qid").val(),
+                page: curPage,
+                count: 5
+            },
+            success: function (e1) {
+                $("#content1").empty()
+                $.each(e1, function (index, answer1) {
+                    //获取回答的赞数
+                    var zan
+                    $.ajax({
+                        async: false,
+                        url: "http://127.0.0.1:8082/zan/count",
+                        data: {
+                            answerId: answer1.answerId,
+                        },
+                        success: function (e) {
+                            zan = e
+                        }
+                    })
+                    //获取点赞记录
+                    var zanUrl
+                    $.ajax({
+                        async: false,
+                        url: "http://127.0.0.1:8082/zan",
+                        data: {
+                            answerId: answer1.answerId,
+                            userId: $("#holder").val()
+                        },
+                        success: function (e) {
+                            console.log(jQuery.type(e))
+                            if (e !="")
+                                zanUrl = '../static/img/icon/zan2.svg'
+                            else
+                                zanUrl = '../static/img/icon/zan1.svg'
+                        }
+                    })
+                    //请求回答问题的用户信息
+                    var user1
+                    $.ajax({
+                        async: false,
+                        url: "http://127.0.0.1:8081/user/" + answer1.userId,
+                        success: function (e) {
+                            user1 = e
+                        }
+                    })
+                    var res1 = "<div class=\"media text-muted pt-3\">\n" +
+                        "            <img class=\"mr-2 rounded\" \n" +
+                        "                 src=\"" + user1.headUrl + "\"\n" +
+                        "                 width=\"40\" height=\"40\">\n" +
+                        "            <p class=\"media-body pb-3\">\n" +
+                        "                <span class=\"text-gray-dark\" >" + user1.userName + "</span>\n" +
+                        "            </p>\n" +
+                        "            <a onclick=\"dianzan(this)\" href=\"javascript:void(0)\" id=\""+answer1.answerId+"\">\n" +
+                        "                <img src=\"" + zanUrl + "\" width=\"30\" height=\"30\"\n" +
+                        "                   \n" +
+                        "                    >\n" +
+                        "            </a>\n" +
+                        "            (<span >" + zan + "</span>)\n" +
+                        "        </div>\n" +
+                        "        <div class=\"mt-2\" >\n" +
+                        "" + answer1.answerContent + "\n" +
+                        "        </div>\n" +
+                        "        <div class=\"container mt-5 col-10 mb-5\" style=\"background-color: snow\">\n" +
+                        "            <!--对答案的回答 -->\n" +
+                        "            <div  class=\"rounded \"\n" +
+                        "                 style=\"background-color: #5a6268\">"
+                    //请求答案的答案
+                    $.ajax({
+                        async: false,
+                        url: "http://127.0.0.1:8082/answer",
+                        type: "get",
+                        data: {
+                            entityType: 1,
+                            entityId: answer1.answerId
+                        },
+                        success: function (e2) {
+                            var res2 = ""
+                            $.each(e2, function (i, answer2) {
+                                //请求用户信息
+                                $.ajax({
+                                    async: false,
+                                    url: "http://127.0.0.1:8081/user/" + answer2.userId,
+                                    type: "get",
+                                    success: function (user) {
+                                        res2 = res2 + "<div class=\"border-bottom pl-3\">\n" +
+                                            " <span class=\"small text-light\">" + user.userName + "</span>\n" +
+                                            " <span class=\"small text-light \"> : " + answer2.answerContent + "</span>\n" +
+                                            " </div>"
+                                    }
+                                })
+
+                            })
+                            res1 = res1 + res2
+                        }
+                    })
+                    res1 = res1 + "</div>\n" +
+                        "            <input type=\"text\" class=\"form-control\"  placeholder=\"我的回复...\">\n" +
+                        "            <div class=\"clearfix mt-2 \">\n" +
+                        "                <button class=\"btn btn-info float-right \" id=\"" + answer1.answerId + "\"\n" +
+                        "                        onclick=\"f3(this)\">回复\n" +
+                        "                </button>\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    </div>"
+                    $("#content1").append(res1)
+                })
+            }
+        })
+    }
+</script>
+
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<meta charset="UTF-8">
+<title>个人主页</title>
+<style>
+    .mohu {
+        filter: blur(4px);
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    #box {
+        position: relative;
+        bottom: 77px;
+    }
+</style>
+<div th:replace="head::head"></div>
+<div class="container col-4">
+    <!--更换头像-->
+    <div class="m-3">
+        <img id="img" class="d-inline rounded-circle  col-3" height="113"
+             src="../static/img/head/default.jpg"
+             th:src="@{${holder.headUrl}}">
+        <div class="col-3 text-center invisible" id="box">
+            <img src="../static/img/icon/相机.svg" width="20" height="20">
+            <p id="text">更改头像</p>
+        </div>
+        <input type="file" id="upload" class="d-none"/>
+    </div>
+    <!--更换昵称-->
+    <div class="input-group m-3">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">昵称：</span>
+        </div>
+        <input type="text" class=" form-control col-6">
+        <div class="input-group-append col-3">
+            <button class="btn btn-outline-success rounded" type="button">确定</button>
+        </div>
+    </div>
+    <hr>
+    <!--更换邮箱-->
+    <div class="input-group m-3">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">邮箱：</span>
+        </div>
+        <input type="text" class="form-control col-6">
+        <div class="input-group-append col-3">
+            <button class="btn btn-outline-success rounded" type="button">确定</button>
+        </div>
+    </div>
+    <hr>
+    <!--更换密码-->
+    <div class="input-group m-3">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">旧密码：</span>
+        </div>
+        <input type="text" class="form-control col-6">
+
+    </div>
+    <div class="input-group m-3">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">新密码：</span>
+        </div>
+        <input type="text" class="form-control col-6">
+
+    </div>
+    <div class="justify-content-center d-flex ">
+        <button class="ml-5 btn btn-primary btn-block col-6">确定</button>
+    </div>
+    <hr>
+</div>
+</html>
+<script>
+    $("#img,#box").hover(function () {
+        $("#box").addClass("cursor-pointer").removeClass("invisible")
+        $("#box").children().addClass("cursor-pointer")
+        $("#img").addClass("mohu cursor-pointer")
+
+    }, function () {
+        $("#box").removeClass("cursor-pointer").addClass("invisible")
+        $("#box").children().removeClass("cursor-pointer")
+        $("#img").removeClass("mohu cursor-pointer")
+    })
+    //上传头像
+    $("#img,#box").click(function () {
+        $("#upload").click()
+        $("#upload").on("change", function () {
+            var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+            console.log(objUrl)
+            if (objUrl) {
+                $("#img").attr("src", objUrl); //将图片路径存入src中，显示出图片
+                uploadimg();
+            }
+        });
+    })
+
+    //  获取头像文件并预览
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) { // basic
+            url = window.createObjectURL(file);
+        } else if (window.URL != undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    }
+
+    //上传头像到服务器
+    function uploadimg() {
+        var pic = $('#upload')[0].files[0];
+        var file = new FormData();
+        file.append('image', pic);
+        $.ajax({
+            url: "http://127.0.0.1:8080/img/upload",
+            type: "post",
+            data: file,
+            cache: false,
+            contentType: false,
+            processData: false,
+            error: function () {
+                console.log("上传失败")
+            }
+        });
+    }
+</script>
