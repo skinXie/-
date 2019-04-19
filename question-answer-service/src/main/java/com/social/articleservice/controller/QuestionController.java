@@ -12,25 +12,21 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    //分页获取问题(分页数量10）
+    //获取问题(可分页）
     @GetMapping("/api/question")
-    public List<Question> getQuestion(@RequestParam(value = "page") int page, @RequestParam(value = "count") int count) {
+    public List<Question> getQuestion(@RequestParam(value = "page",defaultValue = "0",required = false) int page,
+                                      @RequestParam(value = "count",defaultValue = "0",required = false) int count) {
+
         List<Question> questions = questionService.getQuestiobByPage(page, count);
         return questions;
     }
 
     //添加问题
     @PostMapping("/api/question/ask")
-    public int askQuestion(@RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("tag") String tag, @RequestParam("userId") int userId) {
-        return questionService.askQuestion(title, content, tag, userId);
+    public int askQuestion(@RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("tags") List<String> tags, @RequestParam("userId") int userId) {
+        return questionService.askQuestion(title, content, tags, userId);
     }
 
-    //获取所有问题
-    @GetMapping("/api/question/all")
-    public List<Question> getAllQuestion() {
-        List<Question> questions = questionService.getAllQuestion();
-        return questions;
-    }
 
     //获取该用户的提问
     @GetMapping("/api/question/user/{userId}")

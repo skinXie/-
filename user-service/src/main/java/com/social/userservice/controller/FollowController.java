@@ -15,7 +15,7 @@ public class FollowController {
     FollowService followService;
 
     //获取用户关注的用户
-    @RequestMapping("/api/user/following-user/{id}")
+    @GetMapping("/api/user/following-user/{id}")
     public List<User> getFollowUser(@PathVariable("id") int userId) {
         return followService.getFollowUser(userId);
     }
@@ -27,13 +27,13 @@ public class FollowController {
     }
 
     //用户关注
-    @RequestMapping(value = "/api/following-user/{id}", method = RequestMethod.POST)
-    public String FollowUser(int userId, @PathVariable("id") int entityId) {
-        if (followService.isFollow(userId, entityId, "用户") == null) {
-            followService.addFollow(userId, entityId, "用户");
+    @PostMapping(value = "/api/following-user")
+    public String FollowUser(@RequestParam("followerId") int userId, @RequestParam("followedId") int entityId,@RequestParam("type")String type) {
+        if (followService.isFollow(userId, entityId, type) == null) {
+            followService.addFollow(userId, entityId, type);
             return "关注成功";
         }
-        followService.cancleFollow(userId, entityId, "用户");
+        followService.cancleFollow(userId, entityId, type);
         return "关注取消";
     }
 
@@ -50,7 +50,7 @@ public class FollowController {
 
     //判断A是否关注B
     @GetMapping(value = "/api/follow")
-    public Follow isFollow(@RequestParam("userId")int userId, @RequestParam("entityId")int entityId,@RequestParam("type") String type) {
-        return followService.isFollow( userId, entityId, type);
+    public Follow isFollow(@RequestParam("userId") int userId, @RequestParam("entityId") int entityId, @RequestParam("type") String type) {
+        return followService.isFollow(userId, entityId, type);
     }
 }

@@ -16,13 +16,10 @@ public interface QuestionAnswerFeign {
     @GetMapping("/api/question/{id}")
     Question getQuestionById(int qid);
 
-    //获取所有问题
-    @GetMapping("/api/question/all")
-    List<Question> getAllQuestion();
-
-    //分页获取问题(分页数量10）
+    //获取问题(可分页）
     @GetMapping("/api/question")
-    List<Question> getQuestion(@RequestParam(value = "page") int page, @RequestParam(value = "count") int count);
+    public List<Question> getQuestion(@RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                      @RequestParam(value = "count", defaultValue = "0", required = false) int count);
 
     //根据实体Id分页获取回答(分页数量10)
     @GetMapping("/api/answer")

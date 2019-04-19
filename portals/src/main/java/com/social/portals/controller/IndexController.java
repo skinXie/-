@@ -31,7 +31,7 @@ public class IndexController {
     public String index(Model model) {
         List<ViewObject> viewObjects = new ArrayList<>();
         //获取最大分页数
-        int maxPage = questionAnswerFeign.getAllQuestion().size();
+        int maxPage = questionAnswerFeign.getQuestion(0,0).size();
         maxPage = maxPage % 5 == 0 ? maxPage / 5 : maxPage / 5 + 1;
         //分页获取所有问题
         List<Question> questionList = questionAnswerFeign.getQuestion(1, 5);

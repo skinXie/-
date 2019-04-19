@@ -6,11 +6,17 @@
 <script type="text/javascript" src="../static/js/bootstrap.js"></script>
 <script type="text/javascript" src="../static/js/wangEditor.js"></script>
 <meta charset="UTF-8">
-<div class="container col-5 mt-5">
+<div class="container col-6">
     <div class="form-group ">
         <label>标题</label>
         <input id="title" class="form-control">
         <input id="userId" th:value="${userId}" class="d-none">
+    </div>
+    <div class="form-inline form-group">
+        <input class="form-control" id="input1">
+        <button class="btn btn-primary ml-2 btn-sm" onclick="addTags()">添加标签</button>
+    </div>
+    <div class="form-group" id="tags">
     </div>
     <label>正文</label>
     <div class="form-group" id="editor">
@@ -25,6 +31,27 @@
     editor.create()
 </script>
 <script>
+    //定义标签集合
+    var tags = new Array();
+
+    //关闭标签
+    function closeTag(e) {
+        var value = $(e).children("span");
+        tags.pop(value);
+        e.remove();
+    }
+
+    //添加标签
+    function addTags() {
+        var value = $("#input1").val()
+        if (value != "") {
+            $("#tags").append(" <button onclick=\"closeTag(this)\"  type=\"button\" class=\"badge rounded btn btn-primary\">\n" +
+                "            <span>" + value + "</span>&times;\n" +
+                "        </button>")
+            tags.push(value);
+        }
+    }
+
     //提交表单
     function f1() {
         var userId = $("#userId").val()
@@ -36,7 +63,8 @@
             data: {
                 title: title,
                 content: content,
-                userId: userId
+                userId: userId,
+                tags: tags,
             },
             success: function (e) {
                 alert("提问成功")

@@ -5,6 +5,7 @@ import com.social.articleservice.async.QuestionEvent;
 import com.social.articleservice.dao.QuestionDao;
 import common.feign.UserFeign;
 import common.questionAnswer.Question;
+import common.tool.Tool;
 import common.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,14 +25,14 @@ public class QuestionService {
     UserFeign userFeign;
 
     //发布问题,推送消息
-    public int askQuestion(String title, String content, String tag, int userId) {
+    public int askQuestion(String title, String content, List<String> tags, int userId) {
         Question question = new Question();
         question.setQuestionContent(content);
         question.setQuestionDate(new Date());
         question.setQuestionTitle(title);
         question.setUserId(userId);
         question.setVisitTime(0);
-        question.setTag(tag);
+        question.setTag(tags);
         questionDao.insertQuestion(question);
         QuestionEvent e = new QuestionEvent();
         //请求关注的用户
@@ -55,13 +56,11 @@ public class QuestionService {
 
     //分页查询问题
     public List<Question> getQuestiobByPage(int page, int count) {
-        List<Question> questions = questionDao.selectQuestionByPage(count * (page - 1), count);
-        return questions;
-    }
-
-    //查询所有问题
-    public List<Question> getAllQuestion() {
-        List<Question> questions = questionDao.selectAllQuestion();
+        List<Question> questions = null;
+        if (page == 0 || count == 0)
+            questions = questionDao.selectAllQuestion();
+        else
+            questions = questionDao.selectQuestionByPage(count * (page - 1), count);
         return questions;
     }
 

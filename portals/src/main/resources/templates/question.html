@@ -25,6 +25,9 @@
 <div class="container border col-5 mt-2" style="background-color: snow">
     <!--问题的标题-->
     <h5 class="pt-2" th:text="${question.questionTitle}">标题</h5>
+    <div th:each="tag:${question.getTag()}">
+        <span class="badge badge-primary" th:text="${tag}"></span>
+    </div>
     <div class="media text-muted pt-3 ">
         <img width="40" height="40"
              class="mr-2 rounded" th:src="@{${user.headUrl}}"
@@ -135,8 +138,9 @@
                 data: {
                     followerId: followerId,
                     followedId: followedId,
+                    type:"用户",
                 },
-                url: "http://127.0.0.1:8081/follow/add",
+                url: "http://127.0.0.1:8081/api/following-user",
                 success: function () {
                     $(e).val("已关注")
                 }
@@ -147,9 +151,10 @@
                 type: "post",
                 data: {
                     followerId: followerId,
-                    followedId: followedId
+                    followedId: followedId,
+                    type:"用户",
                 },
-                url: "http://127.0.0.1:8081/follow/cancel",
+                url: "http://127.0.0.1:8081/api/following-user",
                 success: function () {
                     $(e).val("关注")
                 }
@@ -166,7 +171,7 @@
         if ($(e).children().attr('src') == '../static/img/icon/zan1.svg') {
             $.ajax({
                 type: "post",
-                url: "http://127.0.0.1:8082/zan/add",
+                url: "http://127.0.0.1:8082/api/zan/add",
                 data: {
                     userId: userId,
                     answerId: answerId
@@ -186,7 +191,7 @@
         var entityId = $(e).attr('id')
         $.ajax({
             type: "post",
-            url: "http://127.0.0.1:8082/answer/add",
+            url: "http://127.0.0.1:8082/api/answer/adding",
             data: {
                 entityType: 0,
                 content: content,
@@ -236,7 +241,7 @@
         var userId = $("#holder").val()
         $.ajax({
             type: "post",
-            url: "http://127.0.0.1:8082/answer/add",
+            url: "http://127.0.0.1:8082/api/answer/adding",
             data: {
                 entityType: 1,
                 content: content,
@@ -394,7 +399,7 @@
         //请求问题的答案
         $.ajax({
             async: false,
-            url: "http://127.0.0.1:8082/answer",
+            url: "http://127.0.0.1:8082/api/answer",
             type: "get",
             data: {
                 entityType: 0,
@@ -409,7 +414,7 @@
                     var zan
                     $.ajax({
                         async: false,
-                        url: "http://127.0.0.1:8082/zan/count",
+                        url: "http://127.0.0.1:8082/api/zan/count",
                         data: {
                             answerId: answer1.answerId,
                         },
@@ -421,7 +426,7 @@
                     var zanUrl
                     $.ajax({
                         async: false,
-                        url: "http://127.0.0.1:8082/zan",
+                        url: "http://127.0.0.1:8082/api/zan",
                         data: {
                             answerId: answer1.answerId,
                             userId: $("#holder").val()
@@ -438,7 +443,7 @@
                     var user1
                     $.ajax({
                         async: false,
-                        url: "http://127.0.0.1:8081/user/" + answer1.userId,
+                        url: "http://127.0.0.1:8081/api/user/" + answer1.userId,
                         success: function (e) {
                             user1 = e
                         }
@@ -467,7 +472,7 @@
                     //请求答案的答案
                     $.ajax({
                         async: false,
-                        url: "http://127.0.0.1:8082/answer",
+                        url: "http://127.0.0.1:8082/api/answer",
                         type: "get",
                         data: {
                             entityType: 1,

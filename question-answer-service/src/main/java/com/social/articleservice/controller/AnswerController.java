@@ -14,7 +14,8 @@ public class AnswerController {
 
     //添加回答
     @PostMapping("/api/answer/adding")
-    public int addAnswerToQuestion(@RequestParam("entityType") int entityType, @RequestParam("userId") int userId, @RequestParam("entityId") int entityId, @RequestParam("content") String content) {
+    public int addAnswerToQuestion(@RequestParam("entityType") int entityType, @RequestParam("userId") int userId,
+                                   @RequestParam("entityId") int entityId, @RequestParam("content") String content) {
         return answerService.addAnswer(entityType, userId, entityId, content);
     }
 
