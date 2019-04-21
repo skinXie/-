@@ -14,8 +14,8 @@ public class QuestionController {
 
     //获取问题(可分页）
     @GetMapping("/api/question")
-    public List<Question> getQuestion(@RequestParam(value = "page",defaultValue = "0",required = false) int page,
-                                      @RequestParam(value = "count",defaultValue = "0",required = false) int count) {
+    public List<Question> getQuestion(@RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                      @RequestParam(value = "count", defaultValue = "0", required = false) int count) {
 
         List<Question> questions = questionService.getQuestiobByPage(page, count);
         return questions;
@@ -48,6 +48,7 @@ public class QuestionController {
         int time = question.getVisitTime() + 1;
         return questionService.addVisitTime(time, qid);
     }
+
 
 
 }

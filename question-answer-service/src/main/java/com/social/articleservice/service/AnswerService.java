@@ -10,6 +10,7 @@ import common.questionAnswer.Question;
 import common.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -58,6 +59,12 @@ public class AnswerService {
     //根据实体id获取回答
     public List<Answer> getAnswer(int entityType, int entityId) {
         List<Answer> answers = answerDao.selectAllAnswer(entityType, entityId);
+        return answers;
+    }
+
+    //获取用户的回答
+    public List<Answer> getAnswerByUid(int uid, int entityType) {
+        List<Answer> answers = answerDao.selectAnswerByUid(uid, entityType);
         return answers;
     }
 }

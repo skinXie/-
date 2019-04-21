@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="../static/css/bootstrap.css"/>
 <script src="../static/js/jquery-3.3.1.js"></script>
 <script src="../static/js/jquery.cookie.js"></script>
@@ -9,12 +9,17 @@
         background-color: #d4edda;
     }
 
+    .empty-state {
+        height: 200px;
+    }
+
 </style>
 <head>
     <meta charset="UTF-8">
-    <title>奇趣</title>
+    <title>个人首页</title>
 </head>
 <body>
+
 <div th:replace="head::head"></div>
 <div class="container col-7 mt-2">
     <!--个人信息-->
@@ -26,34 +31,99 @@
             <p>昵称</p>
         </div>
         <div class="offset-1 col-3 d-flex align-items-end p-2">
-            <button class="btn btn-outline-primary m-1 btn-sm">私信</button>
+            <button class="btn btn-outline-primary m-1 btn-sm " data-toggle="modal" data-target="#exampleModal">私信
+            </button>
             <button class="btn btn-outline-primary m-1 btn-sm">关注</button>
         </div>
     </div>
     <!--个人回答等-->
-    <div class=" mt-4 row ">
+    <div class=" mt-4 row">
         <!--数据展示-->
-        <div class=" col-7  rounded bg-white">
-            <div class="row  border-bottom">
-                <nav class="nav ">
-                    <a class="nav-link active" href="#">回答</a>
-                    <a class="nav-link" href="#">提问</a>
-                    <a class="nav-link" href="#">关注的问题</a>
-                    <a class="nav-link" href="#">关注的人</a>
-                    <a class="nav-link" href="#">随机问题</a>
+        <div class=" col-7  rounded ">
+            <div class="row  border-bottom bg-white">
+                <nav class="nav nav-pills" id="nav1">
+                    <a class="nav-link active" href="javascript:void(0)" onclick="change(this)">回答</a>
+                    <a class="nav-link" href="javascript:void(0)" onclick="change(this)">提问</a>
+                    <a class="nav-link" href="javascript:void(0)" onclick="change(this)">关注的问题</a>
+                    <a class="nav-link" href="javascript:void(0)" onclick="change(this)">关注的人</a>
+                    <a class="nav-link" href="javascript:void(0)" onclick="change(this)">共同关注</a>
                 </nav>
             </div>
-            <div class="row ">
-
+            <!--循环点-->
+            <div th:each="" id="content1">
+                <div class=" row bg-white ">
+                    <p class="empty-state col d-flex justify-content-center align-items-center">无数据展示</p>
+                </div>
             </div>
         </div>
         <!--个人成就-->
-        <div class="rounded col-4  offset-1 bg-white">
-            <p class="bg-white text-center p-3 border-bottom">个人成就</p>
-            <p>问题被浏览了666次</p>
-            <p>问题被浏览了666次</p>
+        <div class="rounded col  align-self-baseline offset-1 bg-white">
+            <div class="row border-bottom bg-white ">
+                <p class="col text-center mt-2">个人成就</p>
+            </div>
+            <div class="row border-bottom bg-white m-2">发表问题数:<span>0</span></div>
+            <div class="row border-bottom bg-white m-2">回答数:<span>0</span></div>
+            <div class="row border-bottom bg-white m-2">问题总浏览数:<span>0</span></div>
+            <div class="row border-bottom bg-white m-2">获得点赞数:<span>0</span></div>
+        </div>
+    </div>
+</div>
+<!--发送消息-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">新消息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">接收人:</label>
+                        <input class="d-none" th:value="${holder}==null?'':${holder.userId}" id="sender">
+                        <input type="text" class="form-control" id="receiver">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">消息:</label>
+                        <textarea class="form-control" id="content"></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="send(this)">发送</button>
+            </div>
         </div>
     </div>
 </div>
 </body>
 </html>
+<script>
+    //点击切换
+    function change(e) {
+        var content=$("#content1")
+        $("#nav1").children("a").removeClass("active");
+        $(e).addClass("active");
+        var text = $(e).text()
+
+        if (text == "回答") {
+
+        }
+        else if (text == "提问") {
+
+        }
+        else if (text == "关注的问题") {
+
+        }
+        else if (text == "关注的人") {
+
+        }
+        else if (text == "共同关注") {
+
+        }
+    }
+
+</script>

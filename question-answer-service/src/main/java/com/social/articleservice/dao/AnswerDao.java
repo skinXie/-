@@ -20,4 +20,8 @@ public interface AnswerDao {
     //根据实体Id查询所有回答
     @Select("select * from answer where entity_id=#{entityId} and entity_type=#{entityType}")
     List<Answer> selectAllAnswer(@Param("entityType") int entityType, @Param("entityId") int entityId);
+
+    //根据用户id查询回答
+    @Select("select * from answer where user_id=#{userId} and entity_type=#{entityType}")
+    List<Answer> selectAnswerByUid(@Param("userId") int userId, @Param("entityType") int entityType);
 }

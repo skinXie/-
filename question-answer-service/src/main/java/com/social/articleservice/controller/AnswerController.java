@@ -34,5 +34,10 @@ public class AnswerController {
         return answers;
     }
 
+    //获取用户的回答
+    @GetMapping("/api/answer/user/{uid}")
+    public List<Answer> getAnswerByUid(@PathVariable("uid") int uid, @RequestParam("entityType") int entityType) {
+        return answerService.getAnswerByUid(uid, entityType);
+    }
 
 }

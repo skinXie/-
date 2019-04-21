@@ -1,5 +1,6 @@
 package common.feign;
 
+import common.questionAnswer.Question;
 import common.user.Follow;
 import common.user.Letter;
 import common.user.User;
@@ -36,9 +37,17 @@ public interface UserFeign {
 
     //判断用户和实体之间是否关注
     @GetMapping(value = "/api/follow")
-    Follow isFollow(@RequestParam("userId")int userId, @RequestParam("entityId")int entityId,@RequestParam("type") String type);
+    Follow isFollow(@RequestParam("userId") int userId, @RequestParam("entityId") int entityId, @RequestParam("type") String type);
 
     //通过ticketId查询用户
     @GetMapping("api/user/ticket/{tid}")
     public User getUserByTicketId(@PathVariable("tid") int ticketId);
+
+    //发送站内信
+    @PostMapping("/api/letter/send")
+    public String sendLetter(int senderId, @RequestParam("receiver") String userName, @RequestParam("content") String content);
+
+    //获取用户关注的问题
+    @GetMapping("/api/user/following-question/{id}/")
+    public List<Question> getFollowQuestion(@PathVariable("id") int userId);
 }

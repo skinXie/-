@@ -1,5 +1,6 @@
 package com.social.articleservice.async;
 
+import common.feign.UserFeign;
 import common.questionAnswer.Question;
 import common.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class QuestionEvent extends Event {
     @Autowired
-    RestTemplate restTemplate;
+    UserFeign userFeign;
     private int systemId = 1;
     private User user;
     private List<User> followUsers;
@@ -20,11 +21,8 @@ public class QuestionEvent extends Event {
     //向关注我的用户进行推送消息
     public void handle() {
         for (User follow : followUsers) {
-            MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
-            params.add("sender", systemId);
-            params.add("receiver", follow.getUserName());
-            params.add("content", "您关注的用户" + user.getUserName() + "有新的问题发布了:<a href=\"http://127.0.0.1:8080/question/" + q.getQuestionId() + "\">" + q.getQuestionTitle() + "</a>");
-            this.restTemplate.postForObject("http://127.0.0.1:8081/letter/send", params, Integer.class);
+            String content = "您关注的用户" + user.getUserName() + "有新的问题发布了:<a href=\"http://127.0.0.1:8080/question/" + q.getQuestionId() + "\">" + q.getQuestionTitle() + "</a>";
+            userFeign.sendLetter(systemId, follow.getUserName(), content);
         }
     }
 
