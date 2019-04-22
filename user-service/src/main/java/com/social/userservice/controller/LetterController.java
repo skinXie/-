@@ -20,7 +20,7 @@ public class LetterController {
 
     //发送站内信
     @PostMapping(value = "/api/letter/send")
-    public String sendLetter(int senderId, @RequestParam("receiver") String userName, @RequestParam("content") String content) {
+    public String sendLetter(@RequestParam("sender")int senderId, @RequestParam("receiver") String userName, @RequestParam("content") String content) {
         if (letterService.sendLetter(senderId, userName, content))
             return "发送成功";
         return "发送失败";

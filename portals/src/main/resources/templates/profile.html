@@ -60,13 +60,29 @@
             </div>
             <!--循环点-->
             <div th:each="vo1:${vo}" id="content1" class="row  d-block">
-                <div class="border-bottom border-light  m-3">
+                <div class="d-none border-bottom border-light  m-3">
                     <img src="../static/img/head/default.jpg" th:src="@{${user.headUrl}}" width="50" height="50"
                          class="rounded">
                     <a class="ml-3" href="/"
                        th:href="@{/question/{questionId}(questionId=${vo1.get('question').questionId})}"
                        th:text="${vo1.get('question').questionTitle}">标题</a>
                     <p class="mt-3" th:text="${vo1.get('answer').answerContent}">回答内容</p>
+                </div>
+                <div class="border-bottom border-light  m-3">
+                    <a class="" href="/" style="font-size: 20px">标题</a>
+                    <div>
+                        <span class="text-muted mt-1 " style="font-size: 15px">时间:2015-10-22</span>
+                        <span class="text-muted mt-1 ml-3" style="font-size: 15px">3个回答</span>
+                        <span class="text-muted mt-1 ml-3" style="font-size: 15px">3个关注</span>
+                    </div>
+                </div>
+                <div class="border-bottom border-light  m-3">
+                    <a class="" href="/" style="font-size: 20px">标题</a>
+                    <div>
+                        <span class="text-muted mt-1 " style="font-size: 15px">时间:2015-10-22</span>
+                        <span class="text-muted mt-1 ml-3" style="font-size: 15px">3个回答</span>
+                        <span class="text-muted mt-1 ml-3" style="font-size: 15px">3个关注</span>
+                    </div>
                 </div>
             </div>
             <!--无数据展示-->
@@ -101,7 +117,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">接收人:</label>
-                        <input type="text" class="form-control" id="receiver">
+                        <input type="text" class="form-control" id="receiver" th:value="${user.name}" value="昵称">
                     </div>
                     <div class="form-group">
                         <label class="col-form-label">消息:</label>
@@ -162,14 +178,47 @@
                                 }
                             })
                         })
-                        if(!content.hasChildNodes()){
+                        if (!content.hasChildNodes()) {
                             emptybox.removeClass("d-none");
                         }
                     }
                 }
             })
-        } else if (text == "提问") {
+        }
+        else if (text == "提问") {
 
+            $.ajax({
+                url: "http://127.0.0.1:8082/api/question/user/" + user.userId,
+                type: "get",
+                success: function (questions) {
+                    var title,time,answerCount,followCount;
+                    $.each(questions, function (i, question) {
+                        title=question.question.questionTitle;
+                        time=question.questionDate;
+                        $.ajax({
+                            url: "http://127.0.0.1:8082/api/answer",
+                            type:"get",
+                            data:{
+                                entityType:0,
+                                entityId:question.questionId,
+                            },
+                            success:function (answers) {
+                                answerCount=answers.length;
+                                $.ajax({
+                                    url: "http://127.0.0.1:8081/api/answer",
+                                    type:"get",
+                                    data:{
+                                        entityType:0,
+                                        entityId:question.questionId,
+                                    },
+                                })
+                            }
+                        });
+
+                    })
+                },
+
+            })
         } else if (text == "关注的问题") {
 
         } else if (text == "关注的人") {
@@ -178,24 +227,24 @@
 
         }
     }
+
     //发送私信
-    <!--发送站内信-->
     function send(e) {
-        var sender = $("#sender").val()
-        if (sender == "") {
+        var sender = $("#holder").val();
+        if (sender == null) {
             alert('请先登录')
             window.location.href = "http://127.0.0.1:8080/logreg"
         }
         else {
             var receiver = $("#receiver").val()
-            var content = $("#content").val()
+            var message = $("#message").val()
             if (receiver != "" && content != "") {
                 $.ajax({
                     url: "http://127.0.0.1:8081/api/letter/send",
                     data: {
-                        sender: sender,
+                        sender: sender.userId,
                         receiver: receiver,
-                        content: content
+                        content: content,
                     },
                     type: "post",
                     success: function () {

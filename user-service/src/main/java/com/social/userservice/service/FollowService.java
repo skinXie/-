@@ -60,4 +60,9 @@ public class FollowService {
     public Follow isFollow(int userId, int entityId, String type) {
         return followDao.isFollow(userId, entityId, type);
     }
+
+    //获取关注某个实体的记录
+    public List<Follow> getFollowByEntityId(int entityId, String type) {
+        return followDao.selectFollowsByEntityId(entityId, type);
+    }
 }

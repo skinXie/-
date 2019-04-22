@@ -21,7 +21,7 @@ public class FollowController {
     }
 
     //获取用户关注的问题
-    @GetMapping("/api/user/following-question/{id}/")
+    @GetMapping("/api/user/following-question/{id}")
     public List<Question> getFollowQuestion(@PathVariable("id") int userId) {
         return followService.getFollowQuestion(userId);
     }
@@ -53,4 +53,12 @@ public class FollowController {
     public Follow isFollow(@RequestParam("userId") int userId, @RequestParam("entityId") int entityId, @RequestParam("type") String type) {
         return followService.isFollow(userId, entityId, type);
     }
+    //获取关注某个问题的记录
+    @GetMapping(value="/api/follow/question/{qid}")
+    public List<Follow> getQuestionFollow(@PathVariable("qid")int qid){
+
+
+    }
+
+
 }
