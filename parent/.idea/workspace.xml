@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7df98f34-4d7c-4fa9-a3b9-86376676d519" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/LetterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/LetterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/dao/FollowDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/dao/FollowDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/FollowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/FollowService.java" afterDir="false" />
-    </list>
+    <list default="true" id="7df98f34-4d7c-4fa9-a3b9-86376676d519" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../eureka/target/" />
     <ignored path="$PROJECT_DIR$/../question-answer-service/target/" />
@@ -57,7 +50,7 @@
       <file leaf-file-name="FollowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
+            <state relative-caret-position="245">
               <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
@@ -419,12 +412,20 @@
       <workItem from="1555757375361" duration="1588000" />
       <workItem from="1555759027481" duration="7787000" />
       <workItem from="1555827095182" duration="474000" />
-      <workItem from="1555827959164" duration="24554000" />
+      <workItem from="1555827959164" duration="24674000" />
     </task>
+    <task id="LOCAL-00001" summary="4-22 23:53">
+      <created>1555948399277</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1555948399277</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69136000" />
+    <option name="totallyTimeSpent" value="69256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,7 +438,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.34019503" />
@@ -456,11 +456,11 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Run Dashboard" order="7" sideWeight="0.49946696" weight="0.2340195" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49946696" weight="0.36511377" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49946696" visible="true" weight="0.36511377" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
       <window_info anchor="bottom" id="Problems" order="8" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
@@ -509,6 +509,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+    <MESSAGE value="4-22 23:53" />
+    <option name="LAST_COMMIT_MESSAGE" value="4-22 23:53" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/ZanService.java">
@@ -882,7 +884,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
+        <state relative-caret-position="245">
           <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
