@@ -28,21 +28,22 @@ public class ProfileController {
 
     @GetMapping(value = "/profile/{uid}")
     public String Profile(Model model, @PathVariable("uid") int uid) {
-        //声明vo视图变量
-        ViewObject vo = new ViewObject();
         //获取用户
         User user = userFeign.getUser(uid);
         //获取用户的回答和回答的问题
         List<Answer> answers = questionAnswerFeign.getAnswerByUid(uid, 0);
         //获取回答数
         int answerCount = answers.size();
-        List<Question> questions = new ArrayList<>();
+        List<ViewObject> vo = new ArrayList<>();
         //获取点赞数
         int zanCount = 0;
         for (Answer var : answers) {
+            ViewObject var1 = new ViewObject();
             Question q = questionAnswerFeign.getQuestionById(var.getEntityId());
-            questions.add(q);
             zanCount += questionAnswerFeign.getZan(var.getAnswerId());
+            var1.put("question", q);
+            var1.put("answer", var);
+            vo.add(var1);
         }
 
         //获取发表问题数
@@ -57,12 +58,14 @@ public class ProfileController {
         Follow follow = userFeign.isFollow(holder.getUser().getUserId(), uid, "用户");
         //添加进视图
         model.addAttribute("user", user);
-        model.addAttribute("holder", holder);
+        model.addAttribute("holder", holder.getUser());
         model.addAttribute("answers", answers);
         model.addAttribute("questionCount", questionCount);
         model.addAttribute("answerCount", answerCount);
         model.addAttribute("visitCount", visitCount);
         model.addAttribute("zanCount", zanCount);
+        model.addAttribute("follow", follow);
+        model.addAttribute("vo", vo);
         return "profile";
     }
 }

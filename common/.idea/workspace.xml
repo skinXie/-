@@ -2,46 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c3b5ad7-6379-4725-8391-b957df3d39f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/tool/Tool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/common/tool/Tool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/feign/QuestionAnswerFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/feign/QuestionAnswerFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/feign/QuestionAnswerFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/QuestionAnswerFeign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/feign/SearchFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/SearchFeign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/feign/UserFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/UserFeign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/portals/Holder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/portals/Holder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/portals/ViewObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/portals/ViewObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/questionAnswer/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/questionAnswer/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/questionAnswer/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/questionAnswer/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/questionAnswer/Zan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/questionAnswer/Zan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/search/QuestionSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/search/QuestionSearch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/search/UserSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/search/UserSearch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/user/Follow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Follow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/user/Letter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Letter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/user/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MailSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MailSend.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,12 +30,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="662">
+              <caret line="213" column="5" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" />
-                <element signature="n#head#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#5366#8072#0" />
+                <element signature="e#7979#9102#0" />
               </folding>
             </state>
           </provider>
@@ -82,8 +45,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/head.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-230">
-              <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="72" />
+            <state relative-caret-position="662">
+              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+              <folding>
+                <element signature="e#5672#6795#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,6 +63,11 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>content</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -118,6 +89,7 @@
         <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" />
         <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/question.html" />
+        <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/ProfileController.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" />
       </list>
     </option>
@@ -143,7 +115,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -158,7 +130,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -170,6 +141,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -273,11 +245,12 @@
       <workItem from="1555633573953" duration="625000" />
       <workItem from="1555634231289" duration="9188000" />
       <workItem from="1555645894793" duration="13185000" />
+      <workItem from="1555909558797" duration="12903000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22998000" />
+    <option name="totallyTimeSpent" value="35901000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -290,8 +263,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23151125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23400854" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -307,7 +281,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32897604" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286334" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -331,13 +305,38 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/../portals/src/main/resources/templates/search.html</url>
           <line>22</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -441,13 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/common/feign/QuestionAnswerFeign.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -462,29 +454,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="37" column="69" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
-          <folding>
-            <element signature="e#1847#1853#0" expanded="true" />
-            <element signature="e#737#743#0" expanded="true" />
-            <element signature="e#743#749#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -511,13 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/ZanController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -539,21 +505,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="30" column="39" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/questionAnswer/Answer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/ProfileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="217" column="36" lean-forward="true" selection-start-line="217" selection-start-column="36" selection-end-line="217" selection-end-column="36" />
+          <folding>
+            <element signature="e#1847#1853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/head.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="72" />
+        <state relative-caret-position="662">
+          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+          <folding>
+            <element signature="e#5672#6795#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="662">
+          <caret line="213" column="5" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" />
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#5366#8072#0" />
+            <element signature="e#7979#9102#0" />
           </folding>
         </state>
       </provider>

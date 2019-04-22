@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="../static/css/bootstrap.css"/>
 <script src="../static/js/jquery-3.3.1.js"></script>
 <script src="../static/js/jquery.cookie.js"></script>
@@ -13,33 +14,41 @@
         height: 200px;
     }
 
+    a:hover {
+        text-decoration: none;
+        color: #ffc107;
+    }
+
 </style>
 <head>
     <meta charset="UTF-8">
     <title>个人首页</title>
 </head>
 <body>
-
+<!--隐藏表单-->
+<input class="d-none" th:value="${user}" id="user">
+<input class="d-none" th:value="${holder}" id="holder">
 <div th:replace="head::head"></div>
 <div class="container col-7 mt-2">
     <!--个人信息-->
     <div class="row mt-2 bg-white rounded ">
         <div class="col-2  d-flex">
-            <img src="../static/img/head/default.jpg" class="rounded" width="120" height="120">
+            <img th:src="@{${user.headUrl}}" src="../static/img/head/default.jpg" class="rounded" width="120"
+                 height="120">
         </div>
         <div class="col-5 d-flex align-items-center">
-            <p>昵称</p>
+            <p th:text="${user.getUserName()}">昵称</p>
         </div>
         <div class="offset-1 col-3 d-flex align-items-end p-2">
             <button class="btn btn-outline-primary m-1 btn-sm " data-toggle="modal" data-target="#exampleModal">私信
             </button>
-            <button class="btn btn-outline-primary m-1 btn-sm">关注</button>
+            <button class="btn btn-outline-primary m-1 btn-sm" th:text="${follow}==null?'关注 ':'已关注'">关注</button>
         </div>
     </div>
     <!--个人回答等-->
-    <div class=" mt-4 row">
+    <div class=" mt-4 row ">
         <!--数据展示-->
-        <div class=" col-7  rounded ">
+        <div class="col-7 rounded bg-white">
             <div class="row  border-bottom bg-white">
                 <nav class="nav nav-pills" id="nav1">
                     <a class="nav-link active" href="javascript:void(0)" onclick="change(this)">回答</a>
@@ -50,10 +59,19 @@
                 </nav>
             </div>
             <!--循环点-->
-            <div th:each="" id="content1">
-                <div class=" row bg-white ">
-                    <p class="empty-state col d-flex justify-content-center align-items-center">无数据展示</p>
+            <div th:each="vo1:${vo}" id="content1" class="row  d-block">
+                <div class="border-bottom border-light  m-3">
+                    <img src="../static/img/head/default.jpg" th:src="@{${user.headUrl}}" width="50" height="50"
+                         class="rounded">
+                    <a class="ml-3" href="/"
+                       th:href="@{/question/{questionId}(questionId=${vo1.get('question').questionId})}"
+                       th:text="${vo1.get('question').questionTitle}">标题</a>
+                    <p class="mt-3" th:text="${vo1.get('answer').answerContent}">回答内容</p>
                 </div>
+            </div>
+            <!--无数据展示-->
+            <div class=" row bg-white d-none" id="emptybox">
+                <p class="empty-state col d-flex justify-content-center align-items-center">无数据展示</p>
             </div>
         </div>
         <!--个人成就-->
@@ -61,10 +79,10 @@
             <div class="row border-bottom bg-white ">
                 <p class="col text-center mt-2">个人成就</p>
             </div>
-            <div class="row border-bottom bg-white m-2">发表问题数:<span>0</span></div>
-            <div class="row border-bottom bg-white m-2">回答数:<span>0</span></div>
-            <div class="row border-bottom bg-white m-2">问题总浏览数:<span>0</span></div>
-            <div class="row border-bottom bg-white m-2">获得点赞数:<span>0</span></div>
+            <div class="row border-bottom bg-white m-2">发表问题数:<span th:text="${questionCount}">0</span></div>
+            <div class="row border-bottom bg-white m-2">回答数:<span th:text="${answerCount}">0</span></div>
+            <div class="row border-bottom bg-white m-2">问题总浏览数:<span th:text="${visitCount}">0</span></div>
+            <div class="row border-bottom bg-white m-2">获得点赞数:<span th:text="${zanCount}">0</span></div>
         </div>
     </div>
 </div>
@@ -83,12 +101,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">接收人:</label>
-                        <input class="d-none" th:value="${holder}==null?'':${holder.userId}" id="sender">
                         <input type="text" class="form-control" id="receiver">
                     </div>
                     <div class="form-group">
                         <label class="col-form-label">消息:</label>
-                        <textarea class="form-control" id="content"></textarea>
+                        <textarea class="form-control" id="message"></textarea>
                     </div>
                 </div>
             </form>
@@ -104,25 +121,95 @@
 <script>
     //点击切换
     function change(e) {
-        var content=$("#content1")
+        var emptybox = $("#emptybox");
+        var user = $("#user").val();
+        var content = $("#content1")
+        var clear = false;
         $("#nav1").children("a").removeClass("active");
         $(e).addClass("active");
-        var text = $(e).text()
-
+        var text = $(e).text();
         if (text == "回答") {
+            $.ajax({
+                url: "http://127.0.0.1:8082/api/answer/user/" + user.userId,
+                type: "get",
+                data:
+                    {
+                        entityType: 1,
+                    },
+                success: function (answers) {
+                    if (answers == null)
+                        emptybox.removeClass("d-none");
+                    else {
+                        $.each(answers, function (i, answer) {
+                            $.ajax({
+                                type: "get",
+                                url: "http://127.0.0.1:8082/api/question/" + answer.entityId,
+                                success: function (question) {
+                                    if (question != null) {
+                                        if (!flag) {
+                                            flag = true;
+                                            content.empty();
+                                        }
+                                        content.append("<div class=\"border-bottom border-light  m-3\">\n" +
+                                            "                    <img src=" + user.headUrl + "width=\"50\" height=\"50\"\n" +
+                                            "                         class=\"rounded\">\n" +
+                                            "                    <a class=\"ml-3\" href=\"/question/" + question.questionId + "\"\n" +
+                                            "                      \n" +
+                                            "                       >" + question.questionTitle + "</a>\n" +
+                                            "                    <p class=\"mt-3\">" + answer.answerContent + "</p>\n" +
+                                            "                </div>")
+                                    }
+                                }
+                            })
+                        })
+                        if(!content.hasChildNodes()){
+                            emptybox.removeClass("d-none");
+                        }
+                    }
+                }
+            })
+        } else if (text == "提问") {
+
+        } else if (text == "关注的问题") {
+
+        } else if (text == "关注的人") {
+
+        } else if (text == "共同关注") {
 
         }
-        else if (text == "提问") {
-
+    }
+    //发送私信
+    <!--发送站内信-->
+    function send(e) {
+        var sender = $("#sender").val()
+        if (sender == "") {
+            alert('请先登录')
+            window.location.href = "http://127.0.0.1:8080/logreg"
         }
-        else if (text == "关注的问题") {
-
-        }
-        else if (text == "关注的人") {
-
-        }
-        else if (text == "共同关注") {
-
+        else {
+            var receiver = $("#receiver").val()
+            var content = $("#content").val()
+            if (receiver != "" && content != "") {
+                $.ajax({
+                    url: "http://127.0.0.1:8081/api/letter/send",
+                    data: {
+                        sender: sender,
+                        receiver: receiver,
+                        content: content
+                    },
+                    type: "post",
+                    success: function () {
+                        alert('发送成功')
+                        $(e).prev().click()
+                    },
+                    error: function () {
+                        alert('发送失败')
+                    }
+                })
+            }
+            else {
+                alert('发送人或内容不能为空')
+            }
         }
     }
 
