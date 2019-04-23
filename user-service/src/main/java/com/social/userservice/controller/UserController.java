@@ -18,8 +18,7 @@ public class UserController {
     UserService userService;
     @Autowired
     TicketService ticketService;
-    @Autowired
-    FollowService followService;
+
 
     //登录
     @PostMapping("api/user/login")
@@ -57,11 +56,5 @@ public class UserController {
     public User getUserByTicketId(@PathVariable("tid") int ticketId) {
         Ticket ticket = ticketService.getTicketByTicketId(ticketId);
         return userService.getUserById(ticket.getUserId());
-    }
-
-    //判断用户和实体之间是否关注
-    @GetMapping(value = "/api/follow")
-    public Follow isFollow(@RequestParam("userId") int userId, @RequestParam("entityId") int entityId, @RequestParam("type") String type) {
-        return followService.isFollow(userId, entityId, type);
     }
 }

@@ -1,18 +1,15 @@
-package com.social.userservice.util;
+package common.util;
 
-import com.social.userservice.service.UserService;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 
-@Service
+@Component
 public class JedisUtil implements InitializingBean {
     private JedisPool pool;
-    @Autowired
-    UserService userService;
 
     @Override
     public void afterPropertiesSet() throws Exception {

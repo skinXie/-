@@ -1,4 +1,4 @@
-package com.social.userservice.util;
+package common.util;
 
 import org.springframework.stereotype.Component;
 

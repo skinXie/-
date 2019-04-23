@@ -29,7 +29,6 @@ public class QuestionService {
         question.setQuestionTitle(title);
         question.setUserId(userId);
         question.setVisitTime(0);
-        question.setTag(tags);
         questionDao.insertQuestion(question);
         QuestionEvent e = new QuestionEvent();
         //请求关注的用户

@@ -12,7 +12,7 @@ public class Question {
     private String questionTitle;
     private String questionContent;
     private Date questionDate;
-    private List<String> tag;
+    private String tag;
     private volatile int visitTime;
 
 

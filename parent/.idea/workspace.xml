@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7df98f34-4d7c-4fa9-a3b9-86376676d519" name="Default" comment="" />
+    <list default="true" id="7df98f34-4d7c-4fa9-a3b9-86376676d519" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../common/src/main/java/common/questionAnswer/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/main/java/common/questionAnswer/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/src/main/java/common/tool/Tool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/target/classes/common/feign/QuestionAnswerFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/../common/target/classes/common/feign/QuestionAnswerFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/target/classes/common/feign/UserFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/../common/target/classes/common/feign/UserFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/target/classes/common/questionAnswer/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/../common/target/classes/common/questionAnswer/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/target/classes/common/tool/Tool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/target/classes/common/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../common/target/classes/common/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/async/ActiveEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/async/ActiveEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/JedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/main/java/common/util/JedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MD5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/main/java/common/util/MD5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MailSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/main/java/common/util/MailSend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/RedisKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/main/java/common/util/RedisKey.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../eureka/target/" />
     <ignored path="$PROJECT_DIR$/../question-answer-service/target/" />
@@ -21,64 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="207" column="63" selection-start-line="207" selection-start-column="63" selection-end-line="207" selection-end-column="63" />
-              <folding>
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#2;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#a#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#2;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#4385#4392#1" expanded="true" />
-                <element signature="e#5636#7755#0" />
-                <element signature="e#7973#8972#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FollowController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FollowService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/FollowService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FollowDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/dao/FollowDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="27" column="108" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Question.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/questionAnswer/Question.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="29" />
+            <state relative-caret-position="528">
+              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -107,13 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/dao/LetterDao.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/dao/TicketDao.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/LetterService.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/TicketService.java" />
-        <option value="$PROJECT_DIR$/../search-service/src/main/java/com/social/searchservice/service/SearchService.java" />
-        <option value="$PROJECT_DIR$/../search-service/src/main/java/com/social/searchservice/dao/SearchDao.java" />
         <option value="$PROJECT_DIR$/../search-service/src/main/java/com/social/searchservice/controller/SearchController.java" />
         <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/ZanController.java" />
         <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java" />
@@ -130,20 +90,16 @@
         <option value="$PROJECT_DIR$/../common/src/main/java/common/feign/SearchFeign.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/SearchController.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/QuestionController.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/UserServiceApplication.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/UserService.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/head.html" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/Interceptor/PassportInterceptor.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/AskController.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/IndexController.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/UserController.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/configuration/WebConfiguration.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/PortalsApplication.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/logreg.html" />
         <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/async/QuestionEvent.java" />
-        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" />
         <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/async/AnswerEvent.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/EditController.java" />
         <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/AnswerDao.java" />
@@ -154,10 +110,21 @@
         <option value="$PROJECT_DIR$/../common/src/main/java/common/feign/UserFeign.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/ProfileController.java" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/LetterController.java" />
-        <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/dao/FollowDao.java" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/FollowService.java" />
+        <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" />
+        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/../common/src/main/java/common/questionAnswer/Question.java" />
+        <option value="$PROJECT_DIR$/../common/src/main/java/common/tool/Tool.java" />
+        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/JedisUtil.java" />
+        <option value="$PROJECT_DIR$/../common/src/main/java/common/util/MailSend.java" />
+        <option value="$PROJECT_DIR$/../common/src/main/java/common/util/JedisUtil.java" />
+        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/UserServiceApplication.java" />
+        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/async/ActiveEvent.java" />
+        <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/UserService.java" />
+        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -198,30 +165,22 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="question-answer-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
+              <item name="parent" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -236,45 +195,39 @@
             </path>
             <path>
               <item name="parent" type="58d84e3e:PackageViewProjectNode" />
-              <item name="common" type="616d4139:PackageViewModuleNode" />
-              <item name="common" type="1f31426a:PackageElementNode" />
-              <item name="questionAnswer" type="1f31426a:PackageElementNode" />
+              <item name="question-answer-service" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
               <item name="parent" type="58d84e3e:PackageViewProjectNode" />
-              <item name="user-service" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="parent" type="58d84e3e:PackageViewProjectNode" />
-              <item name="user-service" type="616d4139:PackageViewModuleNode" />
+              <item name="question-answer-service" type="616d4139:PackageViewModuleNode" />
               <item name="com" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="parent" type="58d84e3e:PackageViewProjectNode" />
-              <item name="user-service" type="616d4139:PackageViewModuleNode" />
+              <item name="question-answer-service" type="616d4139:PackageViewModuleNode" />
               <item name="com" type="1f31426a:PackageElementNode" />
               <item name="social" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="parent" type="58d84e3e:PackageViewProjectNode" />
-              <item name="user-service" type="616d4139:PackageViewModuleNode" />
+              <item name="question-answer-service" type="616d4139:PackageViewModuleNode" />
               <item name="com" type="1f31426a:PackageElementNode" />
               <item name="social" type="1f31426a:PackageElementNode" />
-              <item name="userservice" type="1f31426a:PackageElementNode" />
+              <item name="articleservice" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="parent" type="58d84e3e:PackageViewProjectNode" />
-              <item name="user-service" type="616d4139:PackageViewModuleNode" />
+              <item name="question-answer-service" type="616d4139:PackageViewModuleNode" />
               <item name="com" type="1f31426a:PackageElementNode" />
               <item name="social" type="1f31426a:PackageElementNode" />
-              <item name="userservice" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
+              <item name="articleservice" type="1f31426a:PackageElementNode" />
+              <item name="service" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,6 +236,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="jedis&#9;PSI&#9;JAVA://com.social.userservice.util.JedisUtil" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
@@ -413,6 +367,7 @@
       <workItem from="1555759027481" duration="7787000" />
       <workItem from="1555827095182" duration="474000" />
       <workItem from="1555827959164" duration="24674000" />
+      <workItem from="1556027220533" duration="6810000" />
     </task>
     <task id="LOCAL-00001" summary="4-22 23:53">
       <created>1555948399277</created>
@@ -425,7 +380,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69256000" />
+    <option name="totallyTimeSpent" value="76066000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -451,16 +406,17 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49946696" weight="0.34019503" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Run Dashboard" order="7" sideWeight="0.49946696" weight="0.2340195" />
+      <window_info anchor="bottom" id="Run Dashboard" order="7" sideWeight="0.49946696" weight="0.23185265" />
       <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49946696" visible="true" weight="0.36511377" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16791044" />
       <window_info anchor="bottom" id="Problems" order="8" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
@@ -469,7 +425,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49946696" weight="0.34019503" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
@@ -513,93 +468,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="4-22 23:53" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/ZanService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/LetterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/TicketService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/user/Ticket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/feign/SearchFeign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" column="92" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../search-service/src/main/java/com/social/searchservice/controller/SearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/LetterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/follow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-750" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-721" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/user/Follow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/UserServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/FollowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-29">
@@ -625,13 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -705,27 +566,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="23" column="87" selection-start-line="23" selection-start-column="84" selection-end-line="23" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/head.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="30" column="24" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="30" selection-end-column="24" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -810,9 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -823,48 +664,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="24" column="101" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/questionAnswer/Question.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="207" column="63" selection-start-line="207" selection-start-column="63" selection-end-line="207" selection-end-column="63" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#a#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#4385#4392#1" expanded="true" />
-            <element signature="e#5636#7755#0" />
-            <element signature="e#7973#8972#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -877,15 +680,268 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/FollowService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+        <state relative-caret-position="1344">
+          <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="354" lean-forward="true" selection-start-line="354" selection-end-line="354" />
+          <folding>
+            <element signature="n#html#0;n#!!top" />
+            <element signature="n#style#0;n#html#0;n#!!top" />
+            <element signature="e#418#460#0" />
+            <element signature="e#479#509#0" />
+            <element signature="e#523#585#0" />
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#img#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#nav#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#img#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#form#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#7017#8916#0" />
+            <element signature="e#7188#7250#0" />
+            <element signature="e#7578#8701#0" />
+            <element signature="e#7634#8671#0" />
+            <element signature="e#7683#7832#0" />
+            <element signature="e#8948#11336#0" />
+            <element signature="e#8969#11325#0" />
+            <element signature="e#9125#11310#0" />
+            <element signature="e#9188#11185#0" />
+            <element signature="e#9275#10280#0" />
+            <element signature="e#9421#9562#0" />
+            <element signature="e#9620#10254#0" />
+            <element signature="e#9723#10223#0" />
+            <element signature="e#9923#10014#0" />
+            <element signature="e#10080#10189#0" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#11363#13700#0" />
+            <element signature="e#11384#13689#0" />
+            <element signature="e#11550#13675#0" />
+            <element signature="e#11613#13549#0" />
+            <element signature="e#11700#12162#0" />
+            <element signature="e#11844#11985#0" />
+            <element signature="e#12043#12136#0" />
+            <element signature="e#12196#12622#0" />
+            <element signature="e#12370#12445#0" />
+            <element signature="e#12503#12596#0" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#13726#15747#0" />
+            <element signature="e#13747#15736#0" />
+            <element signature="e#13905#15721#0" />
+            <element signature="e#13960#15595#0" />
+            <element signature="e#14047#15572#0" />
+            <element signature="e#14235#15546#0" />
+            <element signature="e#14276#15515#0" />
+            <element signature="e#14468#14559#0" />
+            <element signature="e#14625#15481#0" />
+            <element signature="e#15775#18063#0" />
+            <element signature="e#15809#15950#0" />
+            <element signature="e#15970#18052#0" />
+            <element signature="e#16080#16179#0" />
+            <element signature="e#16278#17912#0" />
+            <element signature="e#16365#17889#0" />
+            <element signature="e#16553#17863#0" />
+            <element signature="e#16594#17832#0" />
+            <element signature="e#16786#16877#0" />
+            <element signature="e#16943#17798#0" />
+            <element signature="e#18103#19094#0" />
+            <element signature="e#18174#18278#0" />
+            <element signature="e#18284#19088#0" />
+            <element signature="e#18429#19021#0" />
+            <element signature="e#18454#19006#0" />
+            <element signature="e#18548#18704#0" />
+            <element signature="e#18781#18886#0" />
+            <element signature="e#18927#18988#0" />
+            <element signature="e#19027#19078#0" />
+            <element signature="e#19123#19814#0" />
+            <element signature="e#19231#19335#0" />
+            <element signature="e#19383#19807#0" />
+            <element signature="e#19490#19617#0" />
+            <element signature="e#19653#19797#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1128">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="272">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/tool/Tool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/questionAnswer/Question.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/JedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MailSend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MD5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/RedisKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/util/JedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/util/MailSend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/util/MD5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../common/src/main/java/common/util/RedisKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/UserServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/async/ActiveEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-845">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
         </state>
       </provider>
     </entry>

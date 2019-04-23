@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableFeignClients(basePackages = {"common.feign"})
+@ComponentScan(basePackages = {"common.util", "com.social.userservice.*"})
 public class UserServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserServiceApplication.class, args);

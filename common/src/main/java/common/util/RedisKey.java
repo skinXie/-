@@ -1,4 +1,4 @@
-package com.social.userservice.util;
+package common.util;
 
 public class RedisKey {
     //验证码key

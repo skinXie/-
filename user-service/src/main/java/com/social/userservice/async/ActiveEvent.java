@@ -1,6 +1,6 @@
 package com.social.userservice.async;
 
-import com.social.userservice.util.MailSend;
+import common.util.MailSend;
 
 import java.util.UUID;
 
