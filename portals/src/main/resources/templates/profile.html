@@ -42,7 +42,9 @@
         <div class="offset-1 col-3 d-flex align-items-end p-2">
             <button class="btn btn-outline-primary m-1 btn-sm " data-toggle="modal" data-target="#exampleModal">私信
             </button>
-            <button class="btn btn-outline-primary m-1 btn-sm" th:text="${follow}==null?'关注 ':'已关注'">关注</button>
+            <button class="btn btn-outline-primary m-1 btn-sm" th:text="${follow}==null?'关注 ':'已关注'" onclick="f(this)">
+                关注
+            </button>
         </div>
     </div>
     <!--个人回答等-->
@@ -55,7 +57,7 @@
                     <a class="nav-link" href="javascript:void(0)" onclick="change(this)">提问</a>
                     <a class="nav-link" href="javascript:void(0)" onclick="change(this)">关注的问题</a>
                     <a class="nav-link" href="javascript:void(0)" onclick="change(this)">关注的人</a>
-                    <a class="nav-link" href="javascript:void(0)" onclick="change(this)">共同关注</a>
+                    <a class="nav-link" href="javascript:void(0)" onclick="change(this)">共同关注的人</a>
                 </nav>
             </div>
             <!--循环点-->
@@ -68,7 +70,7 @@
                        th:text="${vo1.get('question').questionTitle}">标题</a>
                     <p class="mt-3" th:text="${vo1.get('answer').answerContent}">回答内容</p>
                 </div>
-                <div class="border-bottom border-light  m-3">
+                <div class="d-none border-bottom border-light  m-3">
                     <a class="" href="/" style="font-size: 20px">标题</a>
                     <div>
                         <span class="text-muted mt-1 " style="font-size: 15px">时间:2015-10-22</span>
@@ -76,12 +78,18 @@
                         <span class="text-muted mt-1 ml-3" style="font-size: 15px">3个关注</span>
                     </div>
                 </div>
-                <div class="border-bottom border-light  m-3">
-                    <a class="" href="/" style="font-size: 20px">标题</a>
-                    <div>
-                        <span class="text-muted mt-1 " style="font-size: 15px">时间:2015-10-22</span>
-                        <span class="text-muted mt-1 ml-3" style="font-size: 15px">3个回答</span>
-                        <span class="text-muted mt-1 ml-3" style="font-size: 15px">3个关注</span>
+                <div class="d-none border-bottom border-light  m-3 row">
+                    <img src="../static/img/head/default.jpg" width="50" height="50" class="rounded">
+                    <div class="ml-3 ">
+                        <a href="/">用户名</a>
+                        <p class="text-muted mt-1">3个提问，3个回答，3个关注</p>
+                    </div>
+                </div>
+                <div class=" border-bottom border-light  m-3 row">
+                    <img src="../static/img/head/default.jpg" width="50" height="50" class="rounded">
+                    <div class="ml-3 ">
+                        <a href="/">用户名</a>
+                        <p class="text-muted mt-1">3个提问，3个回答，3个关注</p>
                     </div>
                 </div>
             </div>
@@ -137,10 +145,11 @@
 <script>
     //点击切换
     function change(e) {
+        var holder = $("#holder").val();
         var emptybox = $("#emptybox");
+        emptybox.addClass("d-none");
         var user = $("#user").val();
         var content = $("#content1")
-        var clear = false;
         $("#nav1").children("a").removeClass("active");
         $(e).addClass("active");
         var text = $(e).text();
@@ -153,96 +162,211 @@
                         entityType: 1,
                     },
                 success: function (answers) {
-                    if (answers == null)
-                        emptybox.removeClass("d-none");
-                    else {
-                        $.each(answers, function (i, answer) {
-                            $.ajax({
-                                type: "get",
-                                url: "http://127.0.0.1:8082/api/question/" + answer.entityId,
-                                success: function (question) {
-                                    if (question != null) {
-                                        if (!flag) {
-                                            flag = true;
-                                            content.empty();
-                                        }
-                                        content.append("<div class=\"border-bottom border-light  m-3\">\n" +
-                                            "                    <img src=" + user.headUrl + "width=\"50\" height=\"50\"\n" +
-                                            "                         class=\"rounded\">\n" +
-                                            "                    <a class=\"ml-3\" href=\"/question/" + question.questionId + "\"\n" +
-                                            "                      \n" +
-                                            "                       >" + question.questionTitle + "</a>\n" +
-                                            "                    <p class=\"mt-3\">" + answer.answerContent + "</p>\n" +
-                                            "                </div>")
+                    $.each(answers, function (i, answer) {
+                        $.ajax({
+                            type: "get",
+                            url: "http://127.0.0.1:8082/api/question/" + answer.entityId,
+                            success: function (question) {
+                                if (question != null) {
+                                    if (!flag) {
+                                        flag = true;
+                                        content.empty();
                                     }
+                                    content.append("<div class=\"border-bottom border-light  m-3\">\n" +
+                                        "                    <img src=" + user.headUrl + "width=\"50\" height=\"50\"\n" +
+                                        "                         class=\"rounded\">\n" +
+                                        "                    <a class=\"ml-3\" href=\"/question/" + question.questionId + "\"\n" +
+                                        "                      \n" +
+                                        "                       >" + question.questionTitle + "</a>\n" +
+                                        "                    <p class=\"mt-3\">" + answer.answerContent + "</p>\n" +
+                                        "                </div>")
                                 }
-                            })
+                            }
                         })
-                        if (!content.hasChildNodes()) {
-                            emptybox.removeClass("d-none");
-                        }
+                    })
+                    if (!content.hasChildNodes()) {
+                        emptybox.removeClass("d-none");
                     }
                 }
             })
-        }
-        else if (text == "提问") {
-
+        } else if (text == "提问") {
             $.ajax({
                 url: "http://127.0.0.1:8082/api/question/user/" + user.userId,
                 type: "get",
                 success: function (questions) {
-                    var title,time,answerCount,followCount;
                     $.each(questions, function (i, question) {
-                        title=question.question.questionTitle;
-                        time=question.questionDate;
+                        var answerCount, followCount;
                         $.ajax({
                             url: "http://127.0.0.1:8082/api/answer",
-                            type:"get",
-                            data:{
-                                entityType:0,
-                                entityId:question.questionId,
+                            type: "get",
+                            data: {
+                                entityType: 0,
+                                entityId: question.questionId,
                             },
-                            success:function (answers) {
-                                answerCount=answers.length;
+                            success: function (answers) {
+                                answerCount = answers.length;
                                 $.ajax({
-                                    url: "http://127.0.0.1:8081/api/answer",
-                                    type:"get",
-                                    data:{
-                                        entityType:0,
-                                        entityId:question.questionId,
+                                    url: "http://127.0.0.1:8081/api/follow/entity/" + question.questionId,
+                                    type: "get",
+                                    data: {
+                                        type: "问题",
                                     },
+                                    success: function (follows) {
+                                        followCount = follows.length;
+                                    }
                                 })
                             }
                         });
-
+                        content.append("                <div class=\"border-bottom border-light  m-3\">\n" +
+                            "                    <a class=\"\" href=\"/\" style=\"font-size: 20px\" >" + question.questionTitle + "</a>\n" +
+                            "                    <div>\n" +
+                            "                        <span class=\"text-muted mt-1 \" style=\"font-size: 15px\">" + question.questionDate + "</span>\n" +
+                            "                        <span class=\"text-muted mt-1 ml-3\" style=\"font-size: 15px\">" + answerCount + "个回答</span>\n" +
+                            "                        <span class=\"text-muted mt-1 ml-3\" style=\"font-size: 15px\">" + followCount + "个关注</span>\n" +
+                            "                    </div>\n" +
+                            "                </div>")
                     })
+                    if (!content.hasChildNodes())
+                        emptybox.removeClass("d-none");
                 },
-
             })
         } else if (text == "关注的问题") {
+            $.ajax({
+                url: "http://127.0.0.1:8081/api/user/following-question/" + user.userId,
+                type: "get",
+                success: function (questions) {
+                    $.each(questions, function (i, question) {
+                        var answerCount, followCount;
+                        $.ajax({
+                            url: "http:127.0.0.1:8082/api/answer",
+                            type: "get",
+                            data: {
+                                entityType: 0,
+                                entityId: question.questionId,
+                            },
+                            success: function (answers) {
+                                answerCount = answers.length;
+                            }
+                        });
+                        $.ajax({
+                            url: "http:127.0.0.1:8082/api/follow/entity/" + question.questionId,
+                            type: "get",
+                            data: {
+                                type: "问题",
+                            },
+                            success: function (follows) {
+                                followCount = follows.length;
+                            }
+                        });
+                        content.append("  <div class=\"border-bottom border-light  m-3\">\n" +
+                            "                    <a class=\"\" href=\"/question/" + question.questionId + "\" style=\"font-size: 20px\">" + question.questionTitle + "</a>\n" +
+                            "                    <div>\n" +
+                            "                        <span class=\"text-muted mt-1 \" style=\"font-size: 15px\">" + question.questionDate + "</span>\n" +
+                            "                        <span class=\"text-muted mt-1 ml-3\" style=\"font-size: 15px\">" + answerCount + "个回答</span>\n" +
+                            "                        <span class=\"text-muted mt-1 ml-3\" style=\"font-size: 15px\">" + followCount + "个关注</span>\n" +
+                            "                    </div>\n" +
+                            "                </div>")
 
+                    });
+                    if (!content.hasChildNodes())
+                        emptybox.removeClass("d-none");
+                }
+            })
         } else if (text == "关注的人") {
+            $.ajax({
+                url: "http://127.0.0.1:8081/api/user/following-user/" + user.userId,
+                type: "get",
+                success: function (users) {
+                    $.each(users, function (i, user) {
+                        var answerCount, followCount;
+                        $.ajax({
+                            url: "http://127.0.0.1:8082/api/answer/user/" + user.userId,
+                            type: "get",
+                            success: function (answers) {
+                                $.ajax({
+                                    url: "http://127.0.0.1:8081/api/follow/entity/" + user.userId,
+                                    type: "get",
+                                    data: {
+                                        type: "用户",
+                                    },
+                                    success: function (follows) {
+                                        content.append(" <div class=\"border-bottom border-light  m-3 row\">\n" +
+                                            "                    <img src=\"../static/img/head/default.jpg\" width=\"50\" height=\"50\" class=\"rounded\">\n" +
+                                            "                    <div class=\"ml-3 \">\n" +
+                                            "                        <a href=\" /profile/ " + user.userId + "  \">" + user.userName + "</a>\n" +
+                                            "                        <p class=\"text-muted mt-1\">" + answers.length + "个回答，" + follows.length + "个关注</p>\n" +
+                                            "                    </div>\n" +
+                                            "                </div>")
+                                    }
+                                })
+                            }
+                        })
+                    });
+                    if (!content.hasChildNodes())
+                        emptybox.removeClass("d-none");
+                }
 
-        } else if (text == "共同关注") {
-
+            })
+        } else if (text == "共同关注的人") {
+            if (holder == null) {
+                alert("请先登录.")
+                window.location.href = "http://127.0.0.1:8080/logreg";
+                return;
+            }
+            $.ajax({
+                url: "http://127.0.0.1/api/follow/same",
+                type: "get",
+                data: {
+                    uid1: holder.userId,
+                    uid2: user.userId,
+                },
+                success: function (users) {
+                    $.each(users, function (i, user) {
+                        var answerCount, followCount;
+                        $.ajax({
+                            url: "http://127.0.0.1:8082/api/answer/user/" + user.userId,
+                            type: "get",
+                            success: function (answers) {
+                                $.ajax({
+                                    url: "http://127.0.0.1:8081/api/follow/entity/" + user.userId,
+                                    type: "get",
+                                    data: {
+                                        type: "用户",
+                                    },
+                                    success: function (follows) {
+                                        content.append(" <div class=\"border-bottom border-light  m-3 row\">\n" +
+                                            "                    <img src=\"../static/img/head/default.jpg\" width=\"50\" height=\"50\" class=\"rounded\">\n" +
+                                            "                    <div class=\"ml-3 \">\n" +
+                                            "                        <a href=\"/profile/ " + user.userId + "  \">" + user.userName + "</a>\n" +
+                                            "                        <p class=\"text-muted mt-1\">" + answers.length + "个回答，" + follows.length + "个关注</p>\n" +
+                                            "                    </div>\n" +
+                                            "                </div>")
+                                    }
+                                })
+                            }
+                        })
+                    });
+                    if (!content.hasChildNodes())
+                        emptybox.removeClass("d-none");
+                }
+            })
         }
     }
 
     //发送私信
     function send(e) {
-        var sender = $("#holder").val();
-        if (sender == null) {
+        var holder = $("#holder").val();
+        if (holder == null) {
             alert('请先登录')
-            window.location.href = "http://127.0.0.1:8080/logreg"
-        }
-        else {
+            window.location.href = "http://127.0.0.1:8080/logreg";
+        } else {
             var receiver = $("#receiver").val()
             var message = $("#message").val()
             if (receiver != "" && content != "") {
                 $.ajax({
                     url: "http://127.0.0.1:8081/api/letter/send",
                     data: {
-                        sender: sender.userId,
+                        sender: holder.userId,
                         receiver: receiver,
                         content: content,
                     },
@@ -255,11 +379,36 @@
                         alert('发送失败')
                     }
                 })
-            }
-            else {
+            } else {
                 alert('发送人或内容不能为空')
             }
         }
+    }
+
+    //关注
+    function f(e) {
+        var user = $("#user").val();
+        var holder = $("#holder").val();
+        if (holder == null) {
+            alert('请先登录')
+            window.location.href = "http://127.0.0.1:8080/logreg";
+        }
+        var text = $(e).text();
+        $.ajax({
+            url: "http://127.0.0.1:8081/api/following-user",
+            type: "post",
+            data: {
+                followerId: holder.userId,
+                followedId: user.userId,
+                type: "用户",
+            },
+            success: function (e) {
+                if (e == "关注成功")
+                    $(e).text('已关注');
+                else
+                    $(e).text('关注');
+            }
+        })
     }
 
 </script>

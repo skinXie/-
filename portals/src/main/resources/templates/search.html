@@ -7,7 +7,7 @@
 <script src="../static/js/wangEditor.js"></script>
 <style>
     body {
-        background-color: #c3e6cb;
+        background-color: #71dd8a;
     }
 </style>
 <head>
@@ -26,34 +26,56 @@
         </button>
     </div>
     <!--切换栏-->
-    <nav class="nav nav-pills nav-justified">
-        <a class="nav-link active" href="#">问题</a>
-        <a class="nav-link" href="#">用户</a>
-    </nav>
+    <!--    <nav class="nav nav-pills nav-justified">-->
+    <!--        <a class="nav-link active" href="javascript:void(0)" onclick="change(this)">问题</a>-->
+    <!--        <a class="nav-link " href="javascript:void(0)" onclick="change(this)">用户</a>-->
+    <!--    </nav>-->
     <div class="mt-5">
         <!--循环点-->
-        <div class="media mt-5 border-bottom border-light" th:each="questionSearch:${questionSearches}">
-            <img src="../static/img/head/1.jpg" th:src="@{${questionSearch.headUrl}}" class="mr-3 rounded-circle"
-                 height="40" width="40">
-            <div class="media-body">
-                <a class="navbar-brand" th:href="@{/question/{questionId}(questionId=${questionSearch.questionId})}"
-                   href="javascript:void(0)"><h5 class="mt-0" th:utext="${questionSearch.questionTitle}">标题</h5></a>
-                <div class="d-flex  justify-content-end">
-                    <span class="text-secondary">作者: </span> <span class="text-secondary mr-4"
-                                                                   th:text="${questionSearch.userName}">枣子哥</span>
-                    <span class="text-secondary">时间: </span> <span class="text-secondary mr-4"
-                                                                   th:text="${questionSearch.date}">2018-10-1</span>
-                    <span class="text-secondary">回复数: </span> <span class="text-secondary mr-4"
-                                                                    th:text="${questionSearch.answerTime}">60</span>
-                    <span class="text-secondary">浏览数: </span> <span class="text-secondary mr-2"
-                                                                    th:text="${questionSearch.visitTime}">100</span>
+        <div id="content" th:each="questionSearch:${questionSearches}">
+            <div class=" shadow media bg-white rounded p-3 border-bottom border-success">
+                <img src="../static/img/head/1.jpg" th:src="@{${questionSearch.headUrl}}" class="mr-3 rounded-circle"
+                     height="40" width="40" th:id="${questionSearch.userId}">
+                <div class="media-body">
+                    <a class="navbar-brand" th:href="@{/question/{questionId}(questionId=${questionSearch.questionId})}"
+                       href="javascript:void(0)"><h5 class="mt-0" th:utext="${questionSearch.questionTitle}">标题</h5></a>
+                    <div class="d-flex  justify-content-end">
+                        <span class="text-secondary">作者: </span> <span class="text-secondary mr-4"
+                                                                       th:text="${questionSearch.userName}">枣子哥</span>
+                        <span class="text-secondary">时间: </span> <span class="text-secondary mr-4"
+                                                                       th:text="${questionSearch.questionDate}">2018-10-1</span>
+                        <span class="text-secondary">回复数: </span> <span class="text-secondary mr-4"
+                                                                        th:text="${questionSearch.answerTime}">60</span>
+                        <span class="text-secondary">浏览数: </span> <span class="text-secondary mr-2"
+                                                                        th:text="${questionSearch.visitTime}">100</span>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <!--无数据展示-->
+        <div class="d-none shadow bg-white rounded p-3 border-bottom border-success  justify-content-center d-none"
+             style="height: 200px" id="emptybox">
+            <div class="align-items-center d-flex ">
+                <img src="../static/img/icon/搜索.svg" height="50px" width="50px">
+                <span class="text-muted">无搜索结果</span>
+            </div>
+        </div>
     </div>
 </div>
 </html>
 <script>
+    $(function () {
+        var headimg = $(".mr-3.rounded-circle");
+        headimg.hover(function () {
+            this.style.cursor = 'pointer';
+        });
+        headimg.click(function () {
+            window.location.href = "http://127.0.0.1:8080/profile/" + $(this).attr('id');
+        })
+        if ($("#content").children().length == 0)
+            $("#emptybox").addClass("d-flex");
+        else
+            $("#emptybox").removeClass("d-flex");
+    });
 
 </script>

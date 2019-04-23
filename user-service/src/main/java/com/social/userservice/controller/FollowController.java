@@ -20,7 +20,7 @@ public class FollowController {
         return followService.getFollowUser(userId);
     }
 
-    //获取用户关注的问题
+    //获取用户的关注的问题
     @GetMapping("/api/user/following-question/{id}")
     public List<Question> getFollowQuestion(@PathVariable("id") int userId) {
         return followService.getFollowQuestion(userId);
@@ -28,7 +28,7 @@ public class FollowController {
 
     //用户关注
     @PostMapping(value = "/api/following-user")
-    public String FollowUser(@RequestParam("followerId") int userId, @RequestParam("followedId") int entityId,@RequestParam("type")String type) {
+    public String FollowUser(@RequestParam("followerId") int userId, @RequestParam("followedId") int entityId, @RequestParam("type") String type) {
         if (followService.isFollow(userId, entityId, type) == null) {
             followService.addFollow(userId, entityId, type);
             return "关注成功";
@@ -53,12 +53,17 @@ public class FollowController {
     public Follow isFollow(@RequestParam("userId") int userId, @RequestParam("entityId") int entityId, @RequestParam("type") String type) {
         return followService.isFollow(userId, entityId, type);
     }
-    //获取关注某个问题的记录
-    @GetMapping(value="/api/follow/question/{qid}")
-    public List<Follow> getQuestionFollow(@PathVariable("qid")int qid){
 
-
+    //获取关注某个实体的记录
+    @GetMapping(value = "/api/follow/entity/{entityId}")
+    public List<Follow> getQuestionFollow(@PathVariable("entityId") int entityId, @RequestParam("type") String type) {
+        return followService.getFollowByEntityId(entityId, type);
     }
 
+    //获取两个用户的共同关注
+    @GetMapping(value = "/api/follow/same")
+    public List<User> getSameFollow(@RequestParam("uid1") int uid1, @RequestParam("uid2") int uid2) {
+        return followService.getSameFollow(uid1, uid2);
+    }
 
 }

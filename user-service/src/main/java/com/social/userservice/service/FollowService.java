@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class FollowService {
@@ -64,5 +66,15 @@ public class FollowService {
     //获取关注某个实体的记录
     public List<Follow> getFollowByEntityId(int entityId, String type) {
         return followDao.selectFollowsByEntityId(entityId, type);
+    }
+
+    //获取A用户和B用户的共同关注
+    public List<User> getSameFollow(int uid1, int uid2) {
+        List<User> list1 = getFollowUser(uid1);
+        List<User> list2 = getFollowUser(uid2);
+        Set<User> set = new HashSet<>();
+        set.addAll(list1);
+        set.addAll(list2);
+        return set.size() == 0 ? null : new ArrayList<User>(set);
     }
 }
