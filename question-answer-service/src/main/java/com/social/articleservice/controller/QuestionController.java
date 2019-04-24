@@ -1,5 +1,6 @@
 package com.social.articleservice.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.social.articleservice.service.QuestionService;
 import common.questionAnswer.Question;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class QuestionController {
     //添加问题
     @PostMapping("/api/question/ask")
     public int askQuestion(@RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("tags") List<String> tags, @RequestParam("userId") int userId) {
+
         return questionService.askQuestion(title, content, tags, userId);
     }
 
@@ -48,7 +50,6 @@ public class QuestionController {
         int time = question.getVisitTime() + 1;
         return questionService.addVisitTime(time, qid);
     }
-
 
 
 }

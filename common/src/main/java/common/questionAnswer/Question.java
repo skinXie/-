@@ -1,6 +1,7 @@
 package common.questionAnswer;
 
 import lombok.Data;
+import org.apache.ibatis.annotations.Result;
 
 import java.util.Date;
 import java.util.List;
@@ -12,8 +13,7 @@ public class Question {
     private String questionTitle;
     private String questionContent;
     private Date questionDate;
-    private String tag;
+    private List<String> tag;
     private volatile int visitTime;
-
 
 }

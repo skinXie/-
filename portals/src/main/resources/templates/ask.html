@@ -9,26 +9,26 @@
 <div class="container col-6">
     <div class="form-group ">
         <label>标题</label>
-        <input id="title" class="form-control">
+        <input id="title" class="form-control" placeholder="请输入标题.....">
         <input id="userId" th:value="${userId}" class="d-none">
     </div>
-    <div class="form-inline form-group">
-        <input class="form-control" id="input1">
+    <div class="form-inline">
+        <input class="form-control" id="input1" placeholder="请添加标签.....">
+
         <button class="btn btn-primary ml-2 btn-sm" onclick="addTags()">添加标签</button>
     </div>
     <div class="form-group" id="tags">
     </div>
     <label>正文</label>
-    <div class="form-group" id="editor">
-    </div>
-    <button class="btn btn-outline-primary float-right" onclick="f1()">提交</button>
+    <div id="editor"></div>
+    <button class="mt-2 btn btn-outline-primary float-right" onclick="f1()">提交</button>
 </div>
 </html>
 <!--创建富文本编辑器-->
 <script>
-    var E = window.wangEditor
-    var editor = new E('#editor')
-    editor.create()
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    editor.create();
 </script>
 <script>
     //定义标签集合

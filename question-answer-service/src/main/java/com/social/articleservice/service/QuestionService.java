@@ -1,5 +1,6 @@
 package com.social.articleservice.service;
 
+import com.alibaba.fastjson.JSON;
 import com.social.articleservice.async.Consumer;
 import com.social.articleservice.async.QuestionEvent;
 import com.social.articleservice.dao.QuestionDao;
@@ -29,6 +30,7 @@ public class QuestionService {
         question.setQuestionTitle(title);
         question.setUserId(userId);
         question.setVisitTime(0);
+        question.setTag(tags);
         questionDao.insertQuestion(question);
         QuestionEvent e = new QuestionEvent();
         //请求关注的用户
@@ -62,7 +64,8 @@ public class QuestionService {
 
     //根据问题的id获取问题
     public Question getQuestionByQuestionId(int id) {
-        return questionDao.selectQuestionByQuestionId(id);
+        Question q = questionDao.selectQuestionByQuestionId(id);
+        return q;
     }
 
     //增加浏览数

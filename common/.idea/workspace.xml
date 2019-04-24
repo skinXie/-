@@ -2,14 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c3b5ad7-6379-4725-8391-b957df3d39f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/typehandle/ListTypeHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/util/MailSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/util/MailSend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/feign/QuestionAnswerFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/QuestionAnswerFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/feign/SearchFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/SearchFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/feign/UserFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/UserFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/portals/Holder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/portals/Holder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/portals/ViewObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/portals/ViewObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/questionAnswer/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/questionAnswer/Answer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/questionAnswer/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/questionAnswer/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/questionAnswer/Zan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/questionAnswer/Zan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/search/QuestionSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/search/QuestionSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/search/UserSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/search/UserSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/user/Follow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Follow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/user/Letter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Letter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/user/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Ticket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/common/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/controller/FollowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/FollowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/service/FollowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,33 +49,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/search.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/common/util/MailSend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="52" column="18" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="52" selection-end-column="18" />
-              <folding>
-                <element signature="n#div#0;n#div#1;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/SearchController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/common/search/QuestionSearch.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="29" />
+            <state relative-caret-position="345">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -70,8 +62,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
+        <option value="spring-beans.schema" />
       </list>
     </option>
   </component>
@@ -90,10 +83,6 @@
         <option value="$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MailSend.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/tool/tool.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/tool/Tool.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" />
-        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" />
-        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" />
-        <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" />
         <option value="$PROJECT_DIR$/src/main/java/common/feign/QuestionAnswerFeign.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/index.html" />
@@ -106,6 +95,16 @@
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/profile.html" />
         <option value="$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/SearchController.java" />
         <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/search.html" />
+        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/common/questionAnswer/Tag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" />
+        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/typehandle/ListTypeHandle.java" />
+        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" />
+        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/mybatis-config.xml" />
+        <option value="$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java" />
+        <option value="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" />
+        <option value="$PROJECT_DIR$/src/main/java/common/util/MailSend.java" />
       </list>
     </option>
   </component>
@@ -130,7 +129,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -145,50 +144,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="common" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
               <item name="common" type="58d84e3e:PackageViewProjectNode" />
-              <item name="portals" type="616d4139:PackageViewModuleNode" />
+              <item name="common" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
               <item name="common" type="58d84e3e:PackageViewProjectNode" />
-              <item name="portals" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
+              <item name="common" type="616d4139:PackageViewModuleNode" />
+              <item name="common" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="common" type="58d84e3e:PackageViewProjectNode" />
-              <item name="portals" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="social" type="1f31426a:PackageElementNode" />
+              <item name="common" type="616d4139:PackageViewModuleNode" />
+              <item name="common" type="1f31426a:PackageElementNode" />
+              <item name="util" type="1f31426a:PackageElementNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
             <path>
-              <item name="common" type="58d84e3e:PackageViewProjectNode" />
-              <item name="portals" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="social" type="1f31426a:PackageElementNode" />
-              <item name="portals" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="common" type="58d84e3e:PackageViewProjectNode" />
-              <item name="portals" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="social" type="1f31426a:PackageElementNode" />
-              <item name="portals" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
+              <item name="common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="user-service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,6 +190,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../portals/src/main/resources/static/img/icon" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
@@ -215,7 +200,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -289,12 +274,18 @@
       <workItem from="1555633573953" duration="625000" />
       <workItem from="1555634231289" duration="9188000" />
       <workItem from="1555645894793" duration="13185000" />
-      <workItem from="1555909558797" duration="31088000" />
+      <workItem from="1555909558797" duration="32140000" />
+      <workItem from="1556069401163" duration="9000" />
+      <workItem from="1556069886189" duration="8639000" />
+      <workItem from="1556083374688" duration="5669000" />
+      <workItem from="1556089957497" duration="82000" />
+      <workItem from="1556094234122" duration="158000" />
+      <workItem from="1556096290014" duration="19000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54086000" />
+    <option name="totallyTimeSpent" value="69714000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -309,7 +300,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23400854" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -325,7 +316,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286334" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.159436" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.329718" />
@@ -370,6 +361,20 @@
                 </list>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -439,16 +444,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MailSend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/com/social/userservice/util/MailSend.java" />
     <entry file="file://$PROJECT_DIR$/../parent/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -475,37 +471,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/tool/Tool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1091">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#120#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/tool/Tool.java" />
     <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -513,44 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/ZanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,23 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="217" column="36" lean-forward="true" selection-start-line="217" selection-start-column="36" selection-end-line="217" selection-end-column="36" />
-          <folding>
-            <element signature="e#1847#1853#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/feign/QuestionAnswerFeign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/question.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -597,16 +512,6 @@
             <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="37" column="39" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -720,7 +625,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/common/search/QuestionSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="29" />
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -733,13 +638,168 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="52" column="18" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="52" selection-end-column="18" />
+        <state relative-caret-position="50">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding>
             <element signature="n#div#0;n#div#1;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#1;n#div#1;n#html#0;n#!!top" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/ZanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/AnswerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="37" column="39" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/feign/QuestionAnswerFeign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/questionAnswer/Tag.java" />
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/2.0.1/mybatis-spring-boot-autoconfigure-2.0.1.jar!/org/mybatis/spring/boot/autoconfigure/MybatisProperties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+          <folding>
+            <element signature="e#1975#1976#0" expanded="true" />
+            <element signature="e#2037#2038#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/2.0.1/mybatis-spring-boot-autoconfigure-2.0.1-sources.jar!/org/mybatis/spring/boot/autoconfigure/MybatisProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="66" column="62" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.1/mybatis-3.5.1.jar!/org/apache/ibatis/session/Configuration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="622" column="33" selection-start-line="622" selection-start-column="33" selection-end-line="622" selection-end-column="33" />
+          <folding>
+            <element signature="e#23813#23814#0" expanded="true" />
+            <element signature="e#23860#23861#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.1/mybatis-3.5.1-sources.jar!/org/apache/ibatis/session/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1035">
+          <caret line="154" column="34" lean-forward="true" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/typehandle/ListTypeHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/mybatis-config.xml" />
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-211">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../portals/src/main/java/com/social/portals/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#html#0;n#!!top" />
+            <element signature="e#120#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../search-service/src/main/java/com/social/searchservice/controller/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../portals/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="217" column="36" selection-start-line="217" selection-start-column="36" selection-end-line="217" selection-end-column="36" />
+          <folding>
+            <element signature="e#1847#1853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/util/MailSend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
         </state>
       </provider>
     </entry>
