@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c3b5ad7-6379-4725-8391-b957df3d39f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/typehandle/ListTypeHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/questionAnswer/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/util/MailSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/util/MailSend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/common/feign/QuestionAnswerFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/QuestionAnswerFeign.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/common/feign/SearchFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/SearchFeign.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/common/feign/UserFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/feign/UserFeign.class" afterDir="false" />
@@ -20,11 +17,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/common/user/Letter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Letter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/common/user/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/Ticket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/common/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/../portals/src/main/resources/templates/ask.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/dao/QuestionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/java/com/social/articleservice/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../question-answer-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,7 +43,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/common/util/MailSend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="294">
               <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
             </state>
           </provider>
@@ -280,12 +272,20 @@
       <workItem from="1556083374688" duration="5669000" />
       <workItem from="1556089957497" duration="82000" />
       <workItem from="1556094234122" duration="158000" />
-      <workItem from="1556096290014" duration="19000" />
+      <workItem from="1556096290014" duration="121000" />
     </task>
+    <task id="LOCAL-00001" summary="4-24">
+      <created>1556096364235</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556096364245</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69714000" />
+    <option name="totallyTimeSpent" value="69816000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,9 +298,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -316,7 +315,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.159436" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.44793928" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.329718" />
@@ -379,6 +378,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="4-24" />
+    <option name="LAST_COMMIT_MESSAGE" value="4-24" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -798,7 +801,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/common/util/MailSend.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="294">
           <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
         </state>
       </provider>
