@@ -32,6 +32,16 @@ public class UserService {
         return userDao.selectUserById(userId);
     }
 
+    //根据用户账号查询用户
+    public User getUserByAccount(String account) {
+        return userDao.selectUserByAccount(account);
+    }
+
+    //根据用户昵称查询用户
+    public User getUserByUserName(String username) {
+        return userDao.selectUserByUserName(username);
+    }
+
     //登录
     public int login(String account, String password) {
 
@@ -99,9 +109,9 @@ public class UserService {
     }
 
     //生成验证码,发到邮箱里，存入redis
-    public void setActiveCode(String account, String mailbox) {
-        String activeCode = UUID.randomUUID().toString().substring(0, 4);
-        jedisUtil.setActiveCode(activeCode, account);
+    public void setAndSendActiveCode(String account, String mailbox) {
+        String activeCode = jedisUtil.setActiveCode(account);
+        mailSend.sendMail(mailbox, "社交问答", "您的激活码是:" + activeCode, false);
     }
 
     //更新用户的信息

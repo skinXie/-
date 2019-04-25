@@ -15,7 +15,7 @@ public class ActiveEvent implements Event {
         String content = "<html><head></head><body><h1>感谢注册，请点击以下链接激活您的账号</h1>"
                 + "<h3><a href='http://localhost:8081/user/active?code="
                 + code + "&token=" + userId + "</href></h3></body></html>";
-        mailSend.sendMail(email, "激活邮件", content);
+        mailSend.sendMail(email, "激活邮件", content, true);
     }
 
     public ActiveEvent(MailSend mailSend, int userId, String email) {

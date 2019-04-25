@@ -21,7 +21,7 @@ public class UserController {
 
 
     //登录
-    @PostMapping("api/user/login")
+    @PostMapping("/api/user/login")
     public int login(@RequestParam("account") String account, @RequestParam("password") String password) {
         int ticketId;
         ticketId = userService.login(account, password);
@@ -29,7 +29,7 @@ public class UserController {
     }
 
     //注册
-    @PostMapping("api/user/reg")
+    @PostMapping("/api/user/reg")
     public String reg(@RequestParam("account") String account, @RequestParam("password") String password, @RequestParam("mailbox") String mailbox,
                       @RequestParam("activeCode") String activeCode) {
         Map<String, Object> map = userService.reg(account, password, mailbox, activeCode);
@@ -42,7 +42,7 @@ public class UserController {
     //获取验证码
     @PostMapping("api/user/active-code")
     public void getActiveCode(@RequestParam("account") String account, @RequestParam("mailbox") String mailbox) {
-        userService.setActiveCode(account, mailbox);
+        userService.setAndSendActiveCode(account, mailbox);
     }
 
     //查询用户
@@ -52,9 +52,30 @@ public class UserController {
     }
 
     //通过ticketId查询用户
-    @GetMapping("api/user/ticket/{tid}")
+    @GetMapping("/api/user/ticket/{tid}")
     public User getUserByTicketId(@PathVariable("tid") int ticketId) {
         Ticket ticket = ticketService.getTicketByTicketId(ticketId);
         return userService.getUserById(ticket.getUserId());
+    }
+
+    //通过账号查询用户
+    @GetMapping("/api/user/account/{account}")
+    public User getUserByAccount(@PathVariable("account") String account) {
+        return userService.getUserByAccount(account);
+    }
+
+    //通过昵称查询用户
+    @GetMapping("/api/user/username/{username}")
+    public User getUserByNickname(@PathVariable("username") String username) {
+        return userService.getUserByUserName(username);
+    }
+
+    //修改用户信息
+    @PostMapping("/api/user/update")
+    public void updateUser(@RequestParam("name") String name, @RequestParam("mailbox") String mailbox,
+                           @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword,
+                           @RequestParam("userId") String userId) {
+
+
     }
 }
