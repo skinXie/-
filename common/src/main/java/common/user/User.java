@@ -15,7 +15,6 @@ public class User {
     private String userName;
     private String salt;
     private String headUrl;
-    private String activeCode;
     private String mailbox;
 
     @Override

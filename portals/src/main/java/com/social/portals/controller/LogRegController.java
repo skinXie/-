@@ -1,6 +1,7 @@
 package com.social.portals.controller;
 
 import common.feign.UserFeign;
+import common.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -29,14 +30,16 @@ public class LogRegController {
 
     //处理登录
     @ResponseBody
-    @PostMapping(value = "/login")
-    public String login(@RequestParam("account") String account, @RequestParam("password") String password, HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public String login(@RequestParam("account") String account,
+                        @RequestParam("password") String password,
+                        HttpServletResponse response) {
         int ticketId = userFeign.login(account, password);
         if (ticketId != -1) {
             Cookie cookie = new Cookie("ticket", ticketId + "");
             cookie.setMaxAge(3600 * 24 * 7);
             response.addCookie(cookie);
-            return "登录成功";
+            return "登录成功1";
         }
         return "登录失败";
     }
@@ -44,8 +47,11 @@ public class LogRegController {
     //处理注册
     @ResponseBody
     @PostMapping(value = "/registry")
-    public String registry(@RequestParam("account") String account, @RequestParam("password") String password, @RequestParam("mailbox") String mailbox
-            , @RequestParam("activeCode") String activeCode, HttpServletRequest request, HttpServletResponse response) {
+    public String registry(@RequestParam("account") String account,
+                           @RequestParam("password") String password,
+                           @RequestParam("mailbox") String mailbox,
+                           @RequestParam("activeCode") String activeCode,
+                           HttpServletResponse response) {
         int ticketId = Integer.valueOf(userFeign.reg(account, password, mailbox, activeCode));
         if (ticketId != -1) {
             Cookie cookie = new Cookie("ticket", ticketId + "");

@@ -9,6 +9,7 @@ import common.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @RestController
@@ -65,17 +66,27 @@ public class UserController {
     }
 
     //通过昵称查询用户
-    @GetMapping("/api/user/username/{username}")
+    @RequestMapping(value = "/api/user/username/{username}", method = RequestMethod.GET)
     public User getUserByNickname(@PathVariable("username") String username) {
         return userService.getUserByUserName(username);
     }
 
-    //修改用户信息
-    @PostMapping("/api/user/update")
-    public void updateUser(@RequestParam("name") String name, @RequestParam("mailbox") String mailbox,
-                           @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword,
-                           @RequestParam("userId") String userId) {
+    //编辑用户信息
+    @PostMapping("/api/user/edit")
+    public String updateUser(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "mailbox", required = false) String mailbox,
+            @RequestParam(value = "oldPassword", required = false) String oldPassword,
+            @RequestParam(value = "newPassword", required = false) String newPassword,
+            @RequestParam(value = "userId") String userId,
+            @RequestParam(value = "headUrl", required = false) String headUrl) {
+        return userService.updateUser(name, mailbox, oldPassword, newPassword, Integer.valueOf(userId), headUrl);
+    }
 
-
+    @PostMapping("/api/user/headUrl")
+    public String updateUserHeadUrl(@RequestParam("headUrl") String headUrl, @RequestParam("userId") String userId) {
+        User user = userService.getUserById(Integer.valueOf(userId));
+        user.setHeadUrl(headUrl);
+        return userService.updateUser(user);
     }
 }

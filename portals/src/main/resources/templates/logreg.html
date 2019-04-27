@@ -93,7 +93,8 @@
                     url: "http://127.0.0.1:8081/api/user/account/" + $("#account").val(),
                     type: "get",
                     success: function (e) {
-                        if (e != null) {
+                        console.log(typeof e)
+                        if (e != "") {
                             $("#account").next().text('账号已被注册，请重新输入');
                         } else {
                             $("#account").next().text('账号可用');
@@ -109,7 +110,7 @@
                     url: "http://127.0.0.1:8081/api/user/account/" + $("#account").val(),
                     type: "get",
                     success: function (e) {
-                        if (e == null) {
+                        if (e == "") {
                             $("#account").next().text('账号不存在');
                         }
                     },
@@ -210,17 +211,18 @@
         var mailbox = $("#mailbox").val();
         var activeCode = $("#activeCode").val();
         var next = $("#next").val();
+        var msg = $(e).text()
         //登录
-        if ($("#e").text() == '登录') {
+        if ($.trim(msg) == "登录") {
             $.ajax({
                 type: "post",
-                url: "http://127.0.0.1:8081/api/user/login",
+                url: "http://127.0.0.1:8080/login",
                 data: {
                     account: account,
-                    password: password
+                    password: password,
                 },
                 success: function () {
-                    window.location.href = "http://127.0.0.1:8080" + next
+                    window.location.href = "http://127.0.0.1:8080" + next;
                 }
             })
         }
@@ -228,19 +230,18 @@
         else {
             $.ajax({
                 type: "post",
-                url: "http://127.0.0.1:8081/api/user/reg",
+                url: "http://127.0.0.1:8080/registry",
                 data: {
                     account: account,
                     password: password,
                     mailbox: mailbox,
                     activeCode: activeCode,
                 },
-                success: function () {
+                success: function (e) {
                     window.location.href = "http://127.0.0.1:8080" + next
                 }
             })
         }
-
     }
 
 </script>

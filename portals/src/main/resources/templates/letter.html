@@ -9,7 +9,7 @@
     <title>站内信</title>
 </head>
 <div th:replace="head::head"></div>
-<div class="container mt-5 col-5">
+<div class="container mt-5 col-5" id="content">
     <!--循环站内信-->
     <div class="alert alert-warning alert-dismissible" role="alert" th:each="viewObject:${viewObjects}">
         <button th:id="${viewObject.get('letter').letterId}" type="button" class="close" data-dismiss="alert"
@@ -28,9 +28,24 @@
             </p>
         </div>
     </div>
+    <!--无数据展示-->
+    <div class="bg-secondary rounded  d-flex justify-content-center align-items-center d-none" style="height: 300px" id="empty">
+        <p class="text-white" style="font-size: 30px">无站内信</p>
+    </div>
 </div>
+
 </html>
 <script>
+    //初始化
+    $(function () {
+        if ($("#content").children().length == 0) {
+            $("#empty").removeClass('d-none');
+        }
+        else {
+            $("#empty").addClass('d-none');
+        }
+    })
+
     //关闭已读的站内信
     function f(e) {
         var letterId = $(e).attr('id')

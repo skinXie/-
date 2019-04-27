@@ -41,13 +41,27 @@ public interface UserFeign {
 
     //通过ticketId查询用户
     @GetMapping("api/user/ticket/{tid}")
-    public User getUserByTicketId(@PathVariable("tid") int ticketId);
+    User getUserByTicketId(@PathVariable("tid") int ticketId);
 
     //发送站内信
     @PostMapping("/api/letter/send")
-    public String sendLetter(int senderId, @RequestParam("receiver") String userName, @RequestParam("content") String content);
+    String sendLetter(int senderId, @RequestParam("receiver") String userName, @RequestParam("content") String content);
 
     //获取用户关注的问题
     @GetMapping("/api/user/following-question/{id}/")
-    public List<Question> getFollowQuestion(@PathVariable("id") int userId);
+    List<Question> getFollowQuestion(@PathVariable("id") int userId);
+
+    //更新用户信息
+    @PostMapping("/api/user/edit")
+    String editUser(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "mailbox", required = false) String mailbox,
+            @RequestParam(value = "oldPassword", required = false) String oldPassword,
+            @RequestParam(value = "newPassword", required = false) String newPassword,
+            @RequestParam(value = "userId", required = false) int userId,
+            @RequestParam(value = "headUrl", required = false) String headUrl);
+
+    //更换头像
+    @PostMapping("/api/user/headUrl")
+    String updateUserHeadUrl(@RequestParam("headUrl") String headUrl, @RequestParam("userId") String userId);
 }

@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 @Service
@@ -44,7 +47,6 @@ public class UserService {
 
     //登录
     public int login(String account, String password) {
-
         Ticket ticket = new Ticket();
         User user = userDao.selectUserByAccount(account);
         if (user != null) {
@@ -58,6 +60,7 @@ public class UserService {
                 ticket = ticketDao.selectTicketByUserId(user.getUserId());
                 ticket.setValidTime(date);
                 ticketDao.updateTicket(ticket);
+
             }
         }
         return ticket.getTicketId();
@@ -115,8 +118,27 @@ public class UserService {
     }
 
     //更新用户的信息
-    public int updateUser(User user) {
-        return userDao.updateUser(user);
+    public String updateUser(String name, String mailbox, String oldPassword, String newPassword, int userId, String headUrl) {
+        User user = userDao.selectUserById(userId);
+        System.out.println(oldPassword);
+        if (MD5.string2MD5(oldPassword + user.getSalt()).equals(user.getPassword())) {
+            if (name != null)
+                user.setUserName(name);
+            if (mailbox != null)
+                user.setMailbox(mailbox);
+            if (newPassword != null)
+                user.setPassword(MD5.string2MD5(newPassword + user.getSalt()));
+            if (headUrl != null)
+                user.setHeadUrl(headUrl);
+            userDao.updateUser(user);
+            return "更新成功";
+        }
+        return "密码错误";
+    }
+
+    public String updateUser(User user) {
+        userDao.updateUser(user);
+        return "更新成功";
     }
 
 }

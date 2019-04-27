@@ -17,6 +17,6 @@ public class WebConfiguration implements WebMvcConfigurer {
 
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(passportInterceptor);
-        registry.addInterceptor(logInterceptor).addPathPatterns("/ask/**", "/follow/**", "/letter/**");
+        registry.addInterceptor(logInterceptor).addPathPatterns("/ask/**", "/follow/**", "/letter/**","/edit/**");
     }
 }

@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface UserDao {
     //增加一个用户
-    @Insert("insert into user(account,password,user_name,salt,head_url,active_code,mailbox)" +
-            " values(#{account},#{password},#{userName},#{salt},#{headUrl},#{activeCode},#{mailbox})")
+    @Insert("insert into user(account,password,user_name,salt,head_url,mailbox)" +
+            " values(#{account},#{password},#{userName},#{salt},#{headUrl},#{mailbox})")
     @Options(keyProperty = "userId", useGeneratedKeys = true)
     boolean insertUser(User user);
 
@@ -25,7 +25,7 @@ public interface UserDao {
 
     //更新用户信息
     @Update("update user set password=#{password},user_name=#{userName},head_url=#{headUrl},mailbox=#{mailbox} where account=#{account}")
-    int updateUser(User user);
+    void updateUser(User user);
 
 
 }

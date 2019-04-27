@@ -19,8 +19,7 @@
         position: relative;
     }
 </style>
-<div th:replace="head::head"></div>
-<input id="holder" th:val="${holder}" class="d-none ">
+<input id="holder" th:value="${holder.userId}" class="d-none ">
 <div class="container-fluid offset-2 col-8 mt-3">
     <!--更换头像-->
     <div class=" offset-3 col-8">
@@ -36,31 +35,30 @@
     <!--更换昵称-->
     <div class="row  offset-3 col-8">
         <span class="navbar-text col-2">昵称：</span>
-        <input type="text" class=" form-control col-5" id="input1" th:val="${holder.userName}">
-        <button class="btn btn-outline-success rounded ml-1" type="button" id="btn1">确定</button>
+        <input type="text" class=" form-control col-5" id="input1" th:value="${holder.userName}" maxlength="8">
     </div>
-    <small class="form-text text-danger offset-4" id="hint1">asd</small>
+    <small class="text-danger offset-4 " id="hint1"></small>
     <hr>
     <!--更换邮箱-->
     <div class="row  offset-3 col-8">
         <span class="navbar-text col-2">邮箱：</span>
-        <input type="text" class="form-control col-5" id="input2" th:val="${holder.mailbox}">
-        <button class="btn btn-outline-success rounded ml-1" type="button" id="btn2">确定</button>
+        <input type="email" class="form-control col-5" id="input2" th:value="${holder.mailbox}">
     </div>
-    <small class=" text-danger offset-4" id="hint2"></small>
+    <small class="text-danger offset-4 " id="hint2"></small>
     <hr>
     <!--更换密码-->
     <div class="row  offset-3 col-8">
         <span class="navbar-text col-2">旧密码：</span>
-        <input type="text" class="form-control col-5" id="input3">
-    </div>
-    <div class="row  offset-3 col-8 mt-3">
-        <span class="navbar-text col-2">新密码：</span>
-        <input type="text" class="form-control col-5" id="input4">
+        <input type="password" class="form-control col-5" id="input3">
     </div>
     <small class="text-danger offset-4 " id="hint3"></small>
+    <div class="row  offset-3 col-8 mt-3">
+        <span class="navbar-text col-2">新密码：</span>
+        <input type="password" class="form-control col-5" id="input4">
+    </div>
+    <small class="text-danger offset-4 " id="hint4"></small>
     <div class="offset-4 mt-2 col-4 ">
-        <button class=" btn btn-primary btn-block" id="btn3">确定</button>
+        <button class=" btn btn-primary btn-block" id="btn1" onclick="confirm()">确定</button>
     </div>
     <hr>
 </div>
@@ -70,32 +68,62 @@
     $(function () {
         //头像特效
         $("#img").attr('height', $("#img").prop('width'));
-        $("#box").css('bottom', $("#img").prop('width') * 0.7)
-    })
-    $("#img,#box").hover(function () {
-        $("#box").addClass("cursor-pointer").removeClass("invisible")
-        $("#box").children().addClass("cursor-pointer")
-        $("#img").addClass("mohu cursor-pointer")
+        $("#box").css('bottom', $("#img").prop('width') * 0.7);
+        $("#img,#box").hover(function () {
+            $("#box").addClass("cursor-pointer").removeClass("invisible")
+            $("#box").children().addClass("cursor-pointer")
+            $("#img").addClass("mohu cursor-pointer")
 
-    }, function () {
-        $("#box").removeClass("cursor-pointer").addClass("invisible")
-        $("#box").children().removeClass("cursor-pointer")
-        $("#img").removeClass("mohu cursor-pointer")
+        }, function () {
+            $("#box").removeClass("cursor-pointer").addClass("invisible")
+            $("#box").children().removeClass("cursor-pointer")
+            $("#img").removeClass("mohu cursor-pointer")
+        });
+        //提示框
+        $("#input1").blur(function () {
+            if ($("#input1").val() == "")
+                $("#hint1").text('昵称不能为空');
+        })
+        $("#input1").focus(function () {
+            $("#hint1").text('');
+        })
+        $("#input2").blur(function () {
+            if ($("#input2").val() == "")
+                $("#hint2").text('邮箱不能为空');
+        })
+        $("#input2").focus(function () {
+            $("#hint2").text('');
+        })
+        $("#input3").blur(function () {
+            if ($("#input3").val() == "")
+                $("#hint3").text('旧密码不能为空');
+        })
+        $("#input3").focus(function () {
+            $("#hint3").text('');
+        })
+        $("#input4").blur(function () {
+            if ($("#input4").val() == "")
+                $("#hint4").text('新密码不能为空');
+        })
+        $("#input4").focus(function () {
+            $("#hint4").text('');
+        })
+
     })
+
     //上传头像
     $("#img,#box").click(function () {
-        $("#upload").click()
+        $("#upload").click();
         $("#upload").on("change", function () {
             var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
             console.log(objUrl)
             if (objUrl) {
-                $("#img").attr("src", objUrl); //将图片路径存入src中，显示出图片
-                uploadimg();
+                uploadimg(objUrl);
             }
         });
     })
 
-    //  获取头像文件并预览
+    //  获取头像文件
     function getObjectURL(file) {
         var url = null;
         if (window.createObjectURL != undefined) { // basic
@@ -109,64 +137,46 @@
     }
 
     //上传头像到服务器
-    function uploadimg() {
+    function uploadimg(objUrl) {
         var pic = $('#upload')[0].files[0];
-        var file = new FormData();
-        file.append('image', pic);
+        var data = new FormData();
+        var userId = $("#holder").val();
+        data.append('image', pic);
+        data.append("userId", userId);
+        console.log(pic)
         $.ajax({
             url: "http://127.0.0.1:8080/img/upload",
-            type: "post",
-            data: file,
             cache: false,
-            contentType: false,
+            type: "post",
+            data: data,
             processData: false,
-            error: function () {
-                console.log("上传失败")
+            contentType: false,
+            success: function (e) {
+                $("#img").attr('src',e)
             }
         });
     }
 
-
     //确定按钮
-    function confirm(e) {
-        $("#hint1").text('asdaa')
-        //更改昵称
-        if ($(e).prop('id') == 'btn1') {
-
-            var name = $("#input1").val();
-            $.ajax({
-                url: "http://127.0.0.1:8081/api/user/username/" + name,
-                type: "get",
-                success: function (user) {
-                    if (user == null) {
-                        $.ajax({
-                            url: "http://127.0.0.1:8081/api/user/update",
-                            type: "post",
-                            data: {
-                                name
-                                mailbox
-                                oldPassword
-                            },
-                            success: function () {
-
-                            }
-                        })
-
-                    }
-                }
-            })
-
-        }
-        //更改邮箱
-        if ($(e).prop('id') == 'btn2') {
-
-        }
-        //更改密码
-        if ($(e).prop('id') == 'btn3') {
-
-        }
-
+    function confirm() {
+        var userId = $("#holder").val();
+        var name = $("#input1").val();
+        var mailbox = $("#input2").val();
+        var oldpassword = $("#input3").val();
+        var newpassword = $("#input4").val();
+        $.ajax({
+            type: 'post',
+            url: "http://127.0.0.1:8081/api/user/edit",
+            data: {
+                userId: userId,
+                name: name,
+                mailbox: mailbox,
+                oldPassword: oldpassword,
+                newPassword: newpassword,
+            },
+            success: function (e) {
+                $("#hint4").text(e);
+            }
+        });
     }
-
-
 </script>

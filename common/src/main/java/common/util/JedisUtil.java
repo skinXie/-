@@ -18,11 +18,11 @@ public class JedisUtil implements InitializingBean {
         pool = new JedisPool("redis://127.0.0.1:6379/0");
     }
 
-    //生成并返回activeCode,设置2分钟过期时间
+    //生成并返回activeCode,设置1分钟过期时间
     public String setActiveCode(String account) {
         Jedis jedis = pool.getResource();
-        String activeCode = UUID.randomUUID().toString().substring(4);
-        jedis.setex(RedisKey.ACTIVE_CODE + account, 60 * 2, activeCode);
+        String activeCode = UUID.randomUUID().toString().substring(0,10);
+        jedis.setex(RedisKey.ACTIVE_CODE + account, 60 * 1, activeCode);
         return activeCode;
     }
 

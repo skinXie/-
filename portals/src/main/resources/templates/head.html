@@ -9,8 +9,8 @@
 </head>
 <div th:fragment="head">
     <div class="navbar navbar-expand  navbar-dark  bg-dark sticky-top container-fluid">
-        <div class="collapse navbar-collapse container">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse d-flex justify-content-center">
+            <ul class="navbar-nav">
                 <li class="nav-item ml-2">
                     <a class="nav-link text-light" href="/">
                         <img src="../static/img/icon/首页.svg" height="20" width="20">
@@ -33,7 +33,7 @@
                 <li class="nav-item ml-3">
                     <a class="nav-link text-light " href="/letter">
                         <img src="../static/img/icon/站内信.svg" height="20" width="20">
-                        站内信 <span class="badge badge-light" id="unread">40</span>
+                        站内信 <span class="badge badge-light" id="unread"></span>
                     </a>
                 </li>
                 <li class="nav-item ml-3">
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item ml-3">
-                    <a class="nav-link text-light" href="#">
+                    <a class="nav-link text-light" th:href="@{/profile/{uid}(uid=${holder.userId})}">
                         <img src="../static/img/icon/问答.svg" height="20" width="20">
                         我的问答
                     </a>
@@ -67,15 +67,14 @@
                     </a>
                 </li>
                 <li class="nav-item" th:if="${holder}!=null">
-                    <a class="nav-link text-light navbar-text" href="#"><span
-                            th:text="${holder.userName}">昵称替换</span></a>
+                    <a class="nav-link text-light navbar-text"
+                       href="/edit"><span th:text="${holder.userName}">昵称替换</span></a>
                 </li>
                 <li class="nav-item" th:if="${holder}!=null">
                     <a class="nav-link text-light" href="/exit">退出</a>
                 </li>
             </ul>
         </div>
-
     </div>
     <!--发送消息-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

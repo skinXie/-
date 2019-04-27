@@ -69,10 +69,22 @@
         <div class="col-3 m-4" style="background-color: #f7f7f7;">
         </div>
     </div>
+    <div id="empty" class=" m-5 rounded row d-none bg-white d-flex justify-content-center align-items-center" style="height: 200px">
+        <p class="text-dark">无数据展示</p>
+    </div>
 </div>
 </html>
 <!--初始化分页按钮-->
 <script>
+    if ($("#content1").children().length == 0) {
+        $("#empty").removeClass('d-none');
+        $("#empty").prev().addClass('d-none');
+    }
+    else {
+        $("#empty").addClass('d-none');
+        $("#empty").prev().removeClass('d-none');
+    }
+
     function f1(e) {
         var preNode = $(".active")
         var prePage = preNode.children().text()
