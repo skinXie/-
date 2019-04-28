@@ -108,8 +108,8 @@
         </div>
     </div>
     <script>
-        var userId = $("#sender").val()
-        if (userId != null) {
+        var holderId = $("#sender").val()
+        if (holderId != null) {
             <!--请求未读的站内信-->
             $.ajax({
                 url: "http://127.0.0.1:8081/api/letter/" + holderId,

@@ -31,7 +31,7 @@ public class UploadController {
         File dest = new File(filePath + fileName + ".jpg");
         try {
             file.transferTo(dest);
-            String headUrl = "static/img/head/" + fileName + ".jpg";
+            String headUrl = "http://127.0.0.1:8080/static/img/head/" + fileName + ".jpg";
             userFeign.updateUserHeadUrl(headUrl, userId + "");
             return headUrl;
         } catch (IOException e) {

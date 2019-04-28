@@ -31,7 +31,7 @@ public class ProfileController {
         //获取用户
         User user = userFeign.getUser(uid);
         //获取用户的回答和回答的问题
-        List<Answer> answers = questionAnswerFeign.getAnswerByUid(uid, 0);
+        List<Answer> answers = questionAnswerFeign.getAnswerByUid(user.getUserId(), 0);
         //获取回答数
         int answerCount = answers.size();
         List<ViewObject> vo = new ArrayList<>();
@@ -47,7 +47,7 @@ public class ProfileController {
         }
 
         //获取发表问题数
-        List<Question> questions1 = questionAnswerFeign.getQuestionByUserId(uid);
+        List<Question> questions1 = questionAnswerFeign.getQuestionByUserId(user.getUserId());
         int questionCount = questions1.size();
         //获取问题总浏览数
         int visitCount = 0;
@@ -55,7 +55,7 @@ public class ProfileController {
             visitCount += var.getVisitTime();
         }
         //获取用户是否关注该用户
-        Follow follow = userFeign.isFollow(holder.getUser().getUserId(), uid, "用户");
+        Follow follow = userFeign.isFollow(holder.getUser().getUserId(), user.getUserId(), "用户");
         //添加进视图
         model.addAttribute("user", user);
         model.addAttribute("holder", holder.getUser());

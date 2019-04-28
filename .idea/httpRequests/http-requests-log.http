@@ -1,3 +1,19 @@
+GET http://localhost:8081/api/follow?userId=1&entityId=2&type="用户"
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-28T092145.500.json
+
+###
+
+GET http://localhost:8081/api/follow
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-28T091931.400.json
+
+###
+
 GET http://localhost:8081/{GET%20/api/user/account/{account}}
 
 ###

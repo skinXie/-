@@ -98,7 +98,7 @@ public class UserService {
         user = new User();
         user.setAccount(account);
         user.setMailbox(mailbox);
-        user.setHeadUrl("../static/img/head/default.jpg");
+        user.setHeadUrl("http://127.0.0.1:8080/static/img/head/default.jpg");
         user.setSalt(UUID.randomUUID().toString().substring(0, 4));
         user.setPassword(MD5.string2MD5(password + user.getSalt()));
         user.setUserName(UUID.randomUUID().toString().substring(0, 15));

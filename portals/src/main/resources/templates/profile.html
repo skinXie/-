@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="../static/css/bootstrap.css"/>
 <script src="../static/js/jquery-3.3.1.js"></script>
 <script src="../static/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<meta charset="UTF-8">
 <style>
     html, body {
         background-color: #d4edda;
@@ -33,7 +33,7 @@
     <!--个人信息-->
     <div class="row mt-2 bg-white rounded ">
         <div class="col-2  d-flex">
-            <img th:src="@{${user.headUrl}}" src="../static/img/head/default.jpg" class="rounded" width="120"
+            <img th:src="@{${holder.headUrl}}" src="../static/img/head/default.jpg" class="rounded" width="120"
                  height="120">
         </div>
         <div class="col-5 d-flex align-items-center">
