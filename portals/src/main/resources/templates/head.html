@@ -43,7 +43,8 @@
                     </a>
                 </li>
                 <li class="nav-item ml-3">
-                    <a class="nav-link text-light" th:href="@{/profile/{uid}(uid=${holder.userId})}">
+                    <a class="nav-link text-light"
+                       th:href="${holder}==null?'http://127.0.0.1:8080/profile':'http://127.0.0.1:8080/profile'+${holder.userId}">
                         <img src="../static/img/icon/问答.svg" height="20" width="20">
                         我的问答
                     </a>
@@ -129,8 +130,7 @@
             if (sender == "") {
                 alert('请先登录')
                 window.location.href = "http://127.0.0.1:8080/logreg"
-            }
-            else {
+            } else {
                 var receiver = $("#receiver").val()
                 var content = $("#content").val()
                 if (receiver != "" && content != "") {
@@ -150,8 +150,7 @@
                             alert('发送失败')
                         }
                     })
-                }
-                else {
+                } else {
                     alert('发送人或内容不能为空')
                 }
             }

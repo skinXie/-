@@ -3,13 +3,12 @@ package com.social.articleservice.async;
 import common.feign.UserFeign;
 import common.questionAnswer.Question;
 import common.user.User;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+@Data
 public class QuestionEvent extends Event {
     @Autowired
     UserFeign userFeign;
@@ -24,29 +23,5 @@ public class QuestionEvent extends Event {
             String content = "您关注的用户" + user.getUserName() + "有新的问题发布了:<a href=\"http://127.0.0.1:8080/question/" + q.getQuestionId() + "\">" + q.getQuestionTitle() + "</a>";
             userFeign.sendLetter(systemId, follow.getUserName(), content);
         }
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<User> getFollowUsers() {
-        return followUsers;
-    }
-
-    public void setFollowUsers(List<User> followUsers) {
-        this.followUsers = followUsers;
-    }
-
-    public Question getQ() {
-        return q;
-    }
-
-    public void setQ(Question q) {
-        this.q = q;
     }
 }

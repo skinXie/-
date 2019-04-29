@@ -1,5 +1,6 @@
 package common.user;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
 @Data
@@ -14,6 +15,9 @@ public class Letter {
     private String letterContent;
     //站内信状态(0未读，1已读)
     private int letterStatus;
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 
 
 }

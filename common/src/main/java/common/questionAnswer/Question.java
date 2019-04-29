@@ -1,5 +1,6 @@
 package common.questionAnswer;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import org.apache.ibatis.annotations.Result;
 
@@ -15,5 +16,7 @@ public class Question {
     private Date questionDate;
     private List<String> tag;
     private volatile int visitTime;
-
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 }

@@ -3,6 +3,7 @@ package common.feign;
 import common.questionAnswer.Question;
 import common.user.Follow;
 import common.user.Letter;
+import common.user.Ticket;
 import common.user.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ public interface UserFeign {
 
     //用户登录
     @PostMapping("/api/user/login")
-    int login(@RequestParam("account") String account, @RequestParam("password") String password);
+    Ticket login(@RequestParam("account") String account, @RequestParam("password") String password);
 
     //用户注册
     @PostMapping("api/user/reg")

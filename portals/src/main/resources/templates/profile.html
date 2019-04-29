@@ -37,9 +37,9 @@
                  height="120">
         </div>
         <div class="col-5 d-flex align-items-center">
-            <p th:text="${user.getUserName()}">昵称</p>
+            <p th:text="${user.userName}">昵称</p>
         </div>
-        <div class="offset-1 col-3 d-flex align-items-end p-2">
+        <div class="offset-1 col-3 d-flex align-items-end p-2" id="div1">
             <button class="btn btn-outline-primary m-1 btn-sm " data-toggle="modal" data-target="#exampleModal">私信
             </button>
             <button class="btn btn-outline-primary m-1 btn-sm" th:text="${follow}==null?'关注 ':'已关注'" onclick="f(this)">
@@ -143,12 +143,13 @@
 </body>
 </html>
 <script>
+    var user = Json.parse($("#userId").val());
+    var holder = Json.parse($("#holder").val());
+
     //点击切换
     function change(e) {
-        var holder = $("#holder").val();
         var emptybox = $("#emptybox");
         emptybox.addClass("d-none");
-        var user = $("#user").val();
         var content = $("#content1")
         $("#nav1").children("a").removeClass("active");
         $(e).addClass("active");
@@ -167,7 +168,7 @@
                             type: "get",
                             url: "http://127.0.0.1:8082/api/question/" + answer.entityId,
                             success: function (question) {
-                                if (question != null) {
+                                if (question != "") {
                                     if (!flag) {
                                         flag = true;
                                         content.empty();
@@ -188,8 +189,7 @@
                         emptybox.removeClass("d-none");
                 },
             })
-        }
-        else if (text == "提问") {
+        } else if (text == "提问") {
             $.ajax({
                 url: "http://127.0.0.1:8082/api/question/user/" + user.userId,
                 type: "get",
@@ -230,8 +230,7 @@
                         emptybox.removeClass("d-none");
                 },
             })
-        }
-        else if (text == "关注的问题") {
+        } else if (text == "关注的问题") {
             $.ajax({
                 url: "http://127.0.0.1:8081/api/user/following-question/" + user.userId,
                 type: "get",
@@ -355,20 +354,19 @@
 
     //发送私信
     function send(e) {
-        var holder = $("#holder").val();
-        if (holder == null) {
+        if (holder == "") {
             alert('请先登录')
             window.location.href = "http://127.0.0.1:8080/logreg";
         } else {
             var receiver = $("#receiver").val()
             var message = $("#message").val()
-            if (receiver != "" && content != "") {
+            if (receiver != "" && message != "") {
                 $.ajax({
                     url: "http://127.0.0.1:8081/api/letter/send",
                     data: {
                         sender: holder.userId,
                         receiver: receiver,
-                        content: content,
+                        content: message,
                     },
                     type: "post",
                     success: function () {
@@ -387,9 +385,8 @@
 
     //关注
     function f(e) {
-        var user = $("#user").val();
-        var holder = $("#holder").val();
-        if (holder == null) {
+
+        if (holder == "") {
             alert('请先登录')
             window.location.href = "http://127.0.0.1:8080/logreg";
         }
@@ -410,5 +407,13 @@
             }
         })
     }
+
+    //判断进入的是否是用户本人的界面
+    $(function () {
+        if (holder.userId == user.userId) {
+            $("#div1").addClass('d-none')
+        } else
+            $("#div1").removeClass('d-none')
+    })
 
 </script>

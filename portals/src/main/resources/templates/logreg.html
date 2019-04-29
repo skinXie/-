@@ -221,8 +221,14 @@
                     account: account,
                     password: password,
                 },
-                success: function () {
-                    window.location.href = "http://127.0.0.1:8080" + next;
+                success: function (e) {
+                    if (e != "") {
+                        if (next == '/profile') {
+                            next = next + '/' + e.userId;
+                        }
+                        window.location.href = "http://127.0.0.1:8080" + next;
+                    } else
+                        alert('登录失败')
                 }
             })
         }

@@ -8,6 +8,7 @@
 
 package common.questionAnswer;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
 @Data
@@ -17,6 +18,8 @@ public class Answer {
     private int entityId;
     private int entityType;
     private String answerContent;
-
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 
 }

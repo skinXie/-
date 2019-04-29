@@ -46,8 +46,7 @@ public class UserService {
     }
 
     //登录
-    public int login(String account, String password) {
-        Ticket ticket = new Ticket();
+    public Ticket login(String account, String password) {
         User user = userDao.selectUserByAccount(account);
         if (user != null) {
             //获取salt
@@ -57,13 +56,14 @@ public class UserService {
                 //更新ticket有效时间
                 Date date = new Date();
                 date.setTime(date.getTime() + 1000 * 60 * 60 * 24 * 7);
-                ticket = ticketDao.selectTicketByUserId(user.getUserId());
+                Ticket ticket = ticketDao.selectTicketByUserId(user.getUserId());
                 ticket.setValidTime(date);
                 ticketDao.updateTicket(ticket);
 
+                return ticket;
             }
         }
-        return ticket.getTicketId();
+        return null;
     }
 
     //注册

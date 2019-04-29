@@ -1,6 +1,7 @@
 package com.social.portals.controller;
 
 import common.feign.UserFeign;
+import common.user.Ticket;
 import common.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -30,18 +31,17 @@ public class LogRegController {
 
     //处理登录
     @ResponseBody
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(@RequestParam("account") String account,
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Ticket login(@RequestParam("account") String account,
                         @RequestParam("password") String password,
                         HttpServletResponse response) {
-        int ticketId = userFeign.login(account, password);
-        if (ticketId != -1) {
-            Cookie cookie = new Cookie("ticket", ticketId + "");
+        Ticket ticket = userFeign.login(account, password);
+        if (ticket != null) {
+            Cookie cookie = new Cookie("ticket", ticket.getTicketId() + "");
             cookie.setMaxAge(3600 * 24 * 7);
             response.addCookie(cookie);
-            return "登录成功1";
         }
-        return "登录失败";
+        return ticket;
     }
 
     //处理注册

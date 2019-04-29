@@ -1,5 +1,6 @@
 package common.questionAnswer;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
 /*
@@ -10,4 +11,7 @@ public class Zan {
     private int zanId;
     private int zanUserId;
     private int zanAnswerId;
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 }

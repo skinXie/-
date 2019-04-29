@@ -1,5 +1,6 @@
 package common.user;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,7 +11,7 @@ public class Ticket {
     private int userId;
     private Date validTime;
 
-    public int getUserId() {
-        return userId;
+    public String toString() {
+        return JSON.toJSONString(this);
     }
 }

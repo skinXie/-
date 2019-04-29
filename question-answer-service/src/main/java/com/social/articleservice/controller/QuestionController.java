@@ -24,7 +24,10 @@ public class QuestionController {
 
     //添加问题
     @PostMapping("/api/question/ask")
-    public int askQuestion(@RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("tags") List<String> tags, @RequestParam("userId") int userId) {
+    public int askQuestion(@RequestParam("title") String title,
+                           @RequestParam("content") String content,
+                           @RequestParam("tags[]") List<String> tags,
+                           @RequestParam("userId") int userId) {
 
         return questionService.askQuestion(title, content, tags, userId);
     }

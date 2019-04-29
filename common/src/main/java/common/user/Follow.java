@@ -1,5 +1,6 @@
 package common.user;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
 /*
@@ -15,4 +16,7 @@ public class Follow {
     private int entityId;
     //关注的类型
     private String type;
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 }

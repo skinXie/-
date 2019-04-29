@@ -23,10 +23,10 @@ public class UserController {
 
     //登录
     @PostMapping("/api/user/login")
-    public int login(@RequestParam("account") String account, @RequestParam("password") String password) {
-        int ticketId;
-        ticketId = userService.login(account, password);
-        return ticketId;
+    public Ticket login(@RequestParam("account") String account, @RequestParam("password") String password) {
+        Ticket ticket;
+        ticket = userService.login(account, password);
+        return ticket;
     }
 
     //注册

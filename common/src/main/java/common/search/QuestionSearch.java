@@ -1,6 +1,7 @@
 package common.search;
 
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
 import java.sql.Date;
@@ -16,5 +17,8 @@ public class QuestionSearch {
     private String userName;
     private String headUrl;
     private String category = "问题";
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 
 }

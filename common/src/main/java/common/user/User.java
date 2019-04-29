@@ -1,5 +1,6 @@
 package common.user;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -39,5 +40,9 @@ public class User {
                 .append(account)
                 .append(userName)
                 .toHashCode();
+    }
+
+    public String toString() {
+        return JSON.toJSONString(this);
     }
 }
